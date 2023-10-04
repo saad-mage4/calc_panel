@@ -2,7 +2,7 @@
 session_start();
 $host = $_SERVER['HTTP_HOST'];
 if ($host == 'localhost') {
-    $dirPath = 'panel_111';
+    $dirPath = 'calc_panel';
 } else {
     $dirPath = '';
 }

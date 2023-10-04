@@ -2,7 +2,7 @@
 // Site URL
 $host = $_SERVER['HTTP_HOST'];
 if ($host == 'localhost') {
-    $dirPath = 'panel_111/';
+    $dirPath = 'calc_panel/';
     $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://".$host."/".$dirPath;
     // Database Credentials LOCAL
     define('HOST', 'localhost');
