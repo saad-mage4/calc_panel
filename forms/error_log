@@ -1,0 +1,8 @@
+[26-Jul-2023 19:19:34 UTC] PHP Warning:  mysqli_fetch_object() expects parameter 1 to be mysqli_result, bool given in /home/tamecare/public_html/panel/forms/sitter-services-list.php on line 95
+[26-Jul-2023 19:20:18 UTC] PHP Warning:  mysqli_fetch_object() expects parameter 1 to be mysqli_result, bool given in /home/tamecare/public_html/panel/forms/pet-sitter.php on line 165
+[26-Jul-2023 19:23:21 UTC] PHP Warning:  mysqli_fetch_object() expects parameter 1 to be mysqli_result, bool given in /home/tamecare/public_html/panel/forms/pet-sitter.php on line 165
+[26-Jul-2023 19:24:33 UTC] PHP Warning:  mysqli_fetch_object() expects parameter 1 to be mysqli_result, bool given in /home/tamecare/public_html/panel/forms/pet-sitter.php on line 166
+[26-Jul-2023 19:24:56 UTC] PHP Warning:  mysqli_fetch_object() expects parameter 1 to be mysqli_result, bool given in /home/tamecare/public_html/panel/forms/pet-sitter.php on line 166
+[27-Jul-2023 12:08:23 UTC] PHP Warning:  mysqli_fetch_object() expects parameter 1 to be mysqli_result, bool given in /home/tamecare/public_html/panel/forms/owner_services_accepted.php on line 56
+[29-Jul-2023 11:24:16 UTC] PHP Warning:  mysqli_fetch_object() expects parameter 1 to be mysqli_result, bool given in /home/tamecare/public_html/panel/forms/pet-sitter.php on line 112
+[30-Jul-2023 11:44:49 UTC] PHP Warning:  mysqli_fetch_object() expects parameter 1 to be mysqli_result, bool given in /home/tamecare/public_html/panel/forms/pet-sitter.php on line 117

@@ -1,0 +1,458 @@
+.btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.btns .days .qty {
+  width: 100px;
+  display: flex;
+}
+.btns .days .qty input {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+.btns .days .qty button {
+  font-size: 18px;
+}
+
+#calculator-container {
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+#calculator-container p {
+  margin: 10px 0;
+}
+#calculator-container input[type=number]::-webkit-inner-spin-button, #calculator-container input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+#calculator-container input[type=number] {
+  width: 42%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: block;
+  margin: 0 auto;
+  font-size: 18px;
+  padding-right: 30px;
+}
+#calculator-container .clear-input {
+  position: absolute;
+  right: 15px;
+  top: 80%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 32px;
+  color: #c25900;
+}
+#calculator-container .history-icon {
+  position: absolute;
+  right: 16px;
+  top: 31%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 34px;
+  color: rgba(34, 17, 187, 0.7333333333);
+}
+#calculator-container .calculate-button {
+  background-color: #d56e00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+#calculator-container .calculate-button:hover {
+  background-color: #c25900;
+}
+#calculator-container .calculate-button:active {
+  transform: translate(0, 2px);
+}
+#calculator-container .result-container {
+  display: none;
+  margin-top: 20px;
+}
+#calculator-container .result-box {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+  display: inline-block;
+}
+#calculator-container .result-box table {
+  width: 100%;
+}
+#calculator-container .result-box table th, #calculator-container .result-box table td {
+  background-color: #3d84a8;
+  color: #fff;
+  padding: 5px;
+}
+#calculator-container .result-box table td {
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+#calculator-container .result-box table tr:first-child th {
+  color: #fff;
+}
+#calculator-container .result-box table td:first-child {
+  text-align: left;
+}
+#calculator-container .result-box:hover {
+  background-color: #e0e0e0;
+}
+#calculator-container .visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+#calculator-container .result-box + .result-box {
+  margin-top: 20px;
+}
+#calculator-container .result-container.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+#calculator-container .input-container {
+  margin-top: 20px;
+  position: relative;
+  text-align: center;
+}
+#calculator-container .result-line {
+  background-color: #fff;
+  padding: 5px;
+  display: none;
+}
+#calculator-container .formula-line {
+  font-size: 16px;
+  color: black;
+  margin-top: 10px;
+  padding: 5px;
+  display: block;
+  text-align: center;
+}
+#calculator-container .result-box .profit {
+  background-color: #9bc992;
+  color: black;
+}
+#calculator-container .result-box .remaining {
+  background-color: #b9b6ff;
+  color: black;
+}
+#calculator-container .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+#calculator-container .modal-content {
+  width: 94%;
+  max-width: 400px;
+  margin: 2% auto;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+#calculator-container .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#calculator-container .close:hover,
+#calculator-container .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+#calculator-container .close-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+#calculator-container .close-icon:hover {
+  opacity: 1;
+}
+#calculator-container .close-icon:before, #calculator-container .close-icon:after {
+  position: absolute;
+  left: -19%;
+  content: " ";
+  height: 124%;
+  width: 19%;
+  background-color: #333;
+  top: 700%;
+}
+#calculator-container .close-icon:before {
+  transform: rotate(45deg);
+}
+#calculator-container .close-icon:after {
+  transform: rotate(-45deg);
+}
+#calculator-container .modal-content h2 {
+  margin-top: 7px;
+  margin-bottom: 20px;
+  font-size: 29px;
+  color: #333;
+}
+#calculator-container .add-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1da746;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 15px;
+  margin-top: -2%;
+}
+#calculator-container .add-btn:hover {
+  background-color: #0056b3;
+}
+#calculator-container .modal-content input {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+}
+#calculator-container .fa-solid, #calculator-container .fas {
+  position: absolute;
+  top: 53%;
+  right: 21%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 128%;
+}
+
+.popup {
+  display: none;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-block: 30px;
+  /* Soft colors for each td */
+}
+.popup .popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-height: 80%;
+  overflow-y: auto;
+  font-size: 94%;
+}
+.popup .popup-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.popup .popup-table th, .popup .popup-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+.popup .popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.popup .popup-content {
+  /* General styling for the table container */
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 98%;
+}
+.popup .popup-content table {
+  /* General styling for the table */
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.popup .popup-content th, .popup .popup-content td {
+  /* General styling for table headers and cells */
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+.popup .popup-content th {
+  background-color: #000000; /* Black color */
+  color: #FFFFFF; /* White color */
+}
+.popup .popup-content td:nth-child(1) {
+  background-color: #f5f5f5; /* Peach color */
+}
+.popup .popup-content td:nth-child(2) {
+  background-color: #f2e1ff; /* Light pink color */
+}
+.popup .popup-content td:nth-child(3) {
+  background-color: #fdffde; /* Pale green color */
+}
+.popup .popup-content td:nth-child(4) {
+  background-color: #d0ffc7; /* Light blue color */
+}
+.popup .popup-content td:nth-child(5) {
+  background-color: #fbd6dd; /* Pink color */
+}
+
+.popup-close {
+  position: absolute;
+  top: 3%;
+  right: 6%;
+  cursor: pointer;
+  font-size: 128%;
+}
+
+/* Client Section Styles */
+.client-section {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-client-form {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.client-dropdown {
+  border: 1px solid #ccc;
+  max-height: 560%;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%; /* Ensure it matches the input field width */
+  background: linear-gradient(to bottom, #ffffff, #f7f7f7); /* subtle gradient */
+  display: none;
+  z-index: 2;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease; /* smooth transitions */
+}
+
+.client-dropdown div {
+  padding: 12px 15px; /* increased padding */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.client-dropdown div:hover {
+  background-color: #e0e0e0; /* slightly darker on hover */
+}
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  .client-dropdown {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+}
+/* For mobile devices */
+@media (max-width: 480px) {
+  .client-dropdown {
+    font-size: 12px; /* Further reduce font size for mobiles */
+    padding: 8px 10px; /* Adjust padding */
+  }
+}
+#closeDropdown, #closeClientSearch {
+  padding: 5px;
+  text-align: center;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  border-top: 1px solid #ccc;
+}
+
+#closeDropdown:hover, #closeClientSearch:hover {
+  background-color: #d0d0d0;
+}
+
+.client-section .clear-input {
+  position: absolute;
+  right: 40px; /* Adjust this value to position the clear icon correctly */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px; /* Adjust the font size if needed */
+  color: #c25900;
+}
+
+.search-container {
+  position: relative;
+  width: 42%;
+  display: inline-block;
+}
+
+#clientSearch {
+  width: 124%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: block;
+  font-size: 11px;
+  box-sizing: border-box;
+  margin-left: -20px;
+}
+
+#clientSearch:focus {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.kgs {
+  margin-bottom: 4%;
+}
+
+.clear-input2 {
+  position: absolute;
+  right: -3%;
+  top: 48%;
+  transform: translateY(-50%);
+  font-size: 90%;
+  color: #c25900;
+  cursor: pointer;
+  font-size: 150%;
+}
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}/*# sourceMappingURL=custom.css.map */
