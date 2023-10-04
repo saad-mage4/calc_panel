@@ -4,7 +4,7 @@ $host = $_SERVER['HTTP_HOST'];
 if ($host == 'localhost') {
     $dirPath = 'panel_111';
 } else {
-    $dirPath = 'panel';
+    $dirPath = '';
 }
 require_once $_SERVER['DOCUMENT_ROOT'].'/'.$dirPath.'/config.php';
 require_once 'functions.php';
