@@ -225,25 +225,6 @@ if (!is_loggedin()) {
                             </div>
                             <div class="result-line" id="result-line"></div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         </div>
 
                         <div class="popup" id="historyPopup">
@@ -457,7 +438,7 @@ if (!is_loggedin()) {
 </script>
 
 
-<!-- <script>
+<script>
     const clients = JSON.parse(localStorage.getItem("clients")) || [];
 
     function closeClientDropdown() {
@@ -623,4 +604,4 @@ if (!is_loggedin()) {
             clientSelect.appendChild(option);
         });
     });
-</script> -->
+</script>
