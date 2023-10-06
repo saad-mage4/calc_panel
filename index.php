@@ -1,8 +1,9 @@
 <?php
 $guest = $_GET['guest'];
-// if($guest == 'yes') {
-
-// }
+if($guest == 'yes') {
+    $data = '';
+    $role = '';
+}
 require_once 'core/database.php';
 if ($guest != 'yes' && !is_loggedin()) {
 ?><script>
@@ -93,7 +94,7 @@ if ($guest != 'yes' && !is_loggedin()) {
         </div>
     </section>
 
-    <?php if ($data->role == 'admin' && $guest !='yes') { ?>
+    <?php if ($data->role == 'admin') { ?>
 
         <!-- Main content -->
         <section class="content">
@@ -326,7 +327,7 @@ if ($guest != 'yes' && !is_loggedin()) {
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
-    <?php } else if ($data->role == 'owner' && $guest !='yes') { ?>
+    <?php } else if ($data->role == 'owner') { ?>
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
