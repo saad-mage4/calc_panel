@@ -1,12 +1,15 @@
 <?php
+$guest = $_GET['guest'];
 require_once 'core/database.php';
-if (!is_loggedin()) {
+if ($guest != 'yes' && !is_loggedin()) {
 ?><script>
         window.location.href = "login.php";
     </script><?php
             }
             include_once 'includes/header.php';
-            include_once 'includes/aside.php';
+            if ($guest != 'yes') {
+                include_once 'includes/aside.php';
+            }
                 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -170,7 +173,7 @@ if (!is_loggedin()) {
     <?php } ?>
 
 
-    <?php if ($data->role == 'member') { ?>
+    <?php if ($data->role == 'member' || $guest=='yes') { ?>
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">

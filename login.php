@@ -45,6 +45,9 @@ if(isset($_POST['submit'])) {
                     <p class="text-bold">Need to Register ?</p>
                     <a href="register.php" class="btn btn-info btn-md w-100">Register</a>
                 </div>
+                <div class="col-12 mt-3 text-center">
+                    <a class="btn btn-secondary btn-md w-100" href="index.php?guest=yes">As A Guest</a>
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <?php include_once 'head.php'; ?>
 
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed <?=($guest=='yes')?'sidebar-collapse-full-width':''?>">
     <div class="wrapper">
 
         <!-- Preloader 

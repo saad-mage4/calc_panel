@@ -6,10 +6,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="https://tamecare.com/" class="nav-link" target="_blank">Home</a>
+        <a href="index.php" class="nav-link" target="_blank">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="https://tamecare.com/contact-us/" class="nav-link" target="_blank">Contact</a>
+        <a href="#!" class="nav-link" target="_blank">Contact</a>
       </li>
     </ul>
 
