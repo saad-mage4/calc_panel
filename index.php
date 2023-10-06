@@ -298,6 +298,7 @@ if ($guest != 'yes' && !is_loggedin()) {
 
                         <div class="popup" id="historyPopup">
                             <div class="popup-content">
+                                <a href="" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
                                 <span class="popup-close" onclick="closePopup()">&#10006;</span>
                                 <h2>Calculation History</h2>
                                 <table class="popup-table">
