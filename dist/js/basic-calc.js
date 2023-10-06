@@ -56,22 +56,22 @@
     }
 
     // Event listener for keyboard input
-    document.addEventListener('keydown', (event) => {
-        const key = event.key;
+    // document.addEventListener('keydown', (event) => {
+    //     const key = event.key;
 
-        // Allow numeric keys and some special keys
-        if (/^[0-9%\+\-\*\/\.\r\n]$/.test(key)) {
-            addToDisplay(key);
-        } else if (key === 'Enter') {
-            calculateResult();
-        } else if (key === 'Escape') {
-            clearDisplay();
-        } else if (key === 'Backspace') {
-            backspace();
-        }
+    //     // Allow numeric keys and some special keys
+    //     if (/^[0-9%\+\-\*\/\.\r\n]$/.test(key)) {
+    //         addToDisplay(key);
+    //     } else if (key === 'Enter') {
+    //         calculateResult();
+    //     } else if (key === 'Escape') {
+    //         clearDisplay();
+    //     } else if (key === 'Backspace') {
+    //         backspace();
+    //     }
 
-        event.preventDefault(); // Prevent default action (e.g., page scrolling)
-    });
+    //     event.preventDefault(); // Prevent default action (e.g., page scrolling)
+    // });
 
 
     const clients = JSON.parse(localStorage.getItem("clients")) || [];
