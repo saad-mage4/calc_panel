@@ -402,7 +402,7 @@ if ($guest != 'yes' && !is_loggedin()) {
 
                     <!-- Sugar Calculator -->
                     <div id="sugar-calculator" style="display: none;">
-                        <div class="container" id="calculator-container">
+                        <div class="container" id="sugar-calculator-container">
                             <h3 class="text-center">Sugar Calculator</h3>
                             <div class="formula-line" id="formula-line"></div>
                             <div class="result-container" id="result-container">
