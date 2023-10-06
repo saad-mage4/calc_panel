@@ -1,6 +1,8 @@
 <?php
 $guest = '';
-$guest = $_GET['guest'];
+if(isset($_GET['guest'])){
+    $guest = $_GET['guest'];
+}
 if($guest == 'yes') {
     $data = '';
     $role = '';
