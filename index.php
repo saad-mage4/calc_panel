@@ -1,4 +1,5 @@
 <?php
+$guest = '';
 $guest = $_GET['guest'];
 if($guest == 'yes') {
     $data = '';
