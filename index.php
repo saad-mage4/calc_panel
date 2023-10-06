@@ -76,7 +76,7 @@ if ($guest != 'yes' && !is_loggedin()) {
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer rice-calc">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@ if ($guest != 'yes' && !is_loggedin()) {
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer sugar-calc">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -249,7 +249,85 @@ if ($guest != 'yes' && !is_loggedin()) {
                         </div>
 
                         <!-- Flour Calculator -->
-                        <div class="container" id="calculator-container" style="display: none;">
+                        <div id="flour-calculator" style="display: none;">
+                            <div class="container" id="calculator-container">
+                                <h3 class="text-center">Flour Calculator</h3>
+                            <div class="formula-line" id="formula-line"></div>
+                            <div class="result-container" id="result-container">
+                                <div class="result-box">
+                                    <table>
+                                        <tr>
+                                            <th class="profit">Profit</th>
+                                            <th class="remaining">Remaining</th>
+                                        </tr>
+                                        <tr>
+                                            <td id="result1" class="profit">2.000 KG</td>
+                                            <td id="result2" class="remaining">38.000 KG</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <p class="kgs">Enter the amount (in KGs): </p>
+                                <input type="number" id="amountInput" step="0.01">
+                                <span class="clear-input" id="clearInput" onclick="clearInputField()">&#10006;</span>
+                                <span class="history-icon" id="historyIcon" onclick="showCalculationHistory()">&#x21BB;</span>
+                                </p>
+
+
+                                <div class="search-container">
+                                    <input type="text" id="clientSearch" placeholder="Clients..." onkeyup="filterClients()" oninput="filterClients()">
+                                    <i id="addClientButton" class="fas fa-plus-circle" onclick="addNewClientPopup()"></i>
+                                    <span class="clear-input2" onclick="clearClientInputField()">&#10006;</span>
+                                    <div id="clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
+                                </div>
+
+                                <div id="addClientModal" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close-icon" onclick="closeAddClientModal()">&times;</span>
+                                        <h2>Add New Client</h2>
+                                        <input type="text" id="clientName" class="input-field" placeholder="Client Name">
+                                        <input type="text" id="clientArea" class="input-field" placeholder="Client Area">
+                                        <p> <button class="add-btn" onclick="addClient()">Add</button></p>
+                                    </div>
+                                </div>
+
+
+
+
+                                <button class="calculate-button" onclick="calculateFlour()">Calculate</button>
+                            </div>
+                            <div class="result-line" id="result-line"></div>
+
+                            </div>
+
+                            <div class="popup" id="historyPopup">
+                            <div class="popup-content">
+                                <a href="" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
+                                <span class="popup-close" onclick="closePopup()">&#10006;</span>
+                                <h2>Calculation History</h2>
+                                <table class="popup-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Time</th>
+                                            <th>Client</th> <!-- New Column -->
+                                            <th>Original</th>
+                                            <th>Profit</th>
+                                            <th>Rest</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="historyTable">
+                                        <!-- History table rows will be added here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+
+                         <!-- Rice Calculator -->
+                    <div id="rice-calculator" style="display: none;">
+                        <div class="container" id="calculator-container">
+                            <h3 class="text-center">Rice Calculator</h3>
                             <div class="formula-line" id="formula-line"></div>
                             <div class="result-container" id="result-container">
                                 <div class="result-box">
@@ -320,6 +398,83 @@ if ($guest != 'yes' && !is_loggedin()) {
                                 </table>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Sugar Calculator -->
+                    <div id="sugar-calculator" style="display: none;">
+                        <div class="container" id="calculator-container">
+                            <h3 class="text-center">Sugar Calculator</h3>
+                            <div class="formula-line" id="formula-line"></div>
+                            <div class="result-container" id="result-container">
+                                <div class="result-box">
+                                    <table>
+                                        <tr>
+                                            <th class="profit">Profit</th>
+                                            <th class="remaining">Remaining</th>
+                                        </tr>
+                                        <tr>
+                                            <td id="result1" class="profit">2.000 KG</td>
+                                            <td id="result2" class="remaining">38.000 KG</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <p class="kgs">Enter the amount (in KGs): </p>
+                                <input type="number" id="amountInput" step="0.01">
+                                <span class="clear-input" id="clearInput" onclick="clearInputField()">&#10006;</span>
+                                <span class="history-icon" id="historyIcon" onclick="showCalculationHistory()">&#x21BB;</span>
+                                </p>
+
+
+                                <div class="search-container">
+                                    <input type="text" id="clientSearch" placeholder="Clients..." onkeyup="filterClients()" oninput="filterClients()">
+                                    <i id="addClientButton" class="fas fa-plus-circle" onclick="addNewClientPopup()"></i>
+                                    <span class="clear-input2" onclick="clearClientInputField()">&#10006;</span>
+                                    <div id="clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
+                                </div>
+
+                                <div id="addClientModal" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close-icon" onclick="closeAddClientModal()">&times;</span>
+                                        <h2>Add New Client</h2>
+                                        <input type="text" id="clientName" class="input-field" placeholder="Client Name">
+                                        <input type="text" id="clientArea" class="input-field" placeholder="Client Area">
+                                        <p> <button class="add-btn" onclick="addClient()">Add</button></p>
+                                    </div>
+                                </div>
+
+
+
+
+                                <button class="calculate-button" onclick="calculateFlour()">Calculate</button>
+                            </div>
+                            <div class="result-line" id="result-line"></div>
+
+                        </div>
+
+                        <div class="popup" id="historyPopup">
+                            <div class="popup-content">
+                                <a href="" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
+                                <span class="popup-close" onclick="closePopup()">&#10006;</span>
+                                <h2>Calculation History</h2>
+                                <table class="popup-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Time</th>
+                                            <th>Client</th> <!-- New Column -->
+                                            <th>Original</th>
+                                            <th>Profit</th>
+                                            <th>Rest</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="historyTable">
+                                        <!-- History table rows will be added here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
 
                     </div>
@@ -502,16 +657,27 @@ if ($guest != 'yes' && !is_loggedin()) {
             });
         });
 
-        $('.flour-cal').on('click', function(e) {
-            e.preventDefault();
-            $('.container-calc').hide();
-            $('#calculator-container').show('slow');
-        });
         $('.basic-calc').on('click', function(e) {
             e.preventDefault();
-            $('#calculator-container').hide();
+            $('#flour-calculator, #rice-calculator, #sugar-calculator').hide();
             $('.container-calc').show('slow');
         });
+        $('.flour-cal').on('click', function(e) {
+            e.preventDefault();
+            $('.container-calc, #rice-calculator, #sugar-calculator').hide();
+            $('#flour-calculator').show('slow');
+        });
+        $('.rice-calc').on('click', function(e) {
+            e.preventDefault();
+            $('.container-calc ,#flour-calculator, #sugar-calculator').hide();
+            $('#rice-calculator').show('slow');
+        });
+        $('.sugar-calc').on('click', function(e) {
+            e.preventDefault();
+            $('.container-calc ,#flour-calculator, #rice-calculator').hide();
+            $('#sugar-calculator').show('slow');
+        });
+
 
 
     });

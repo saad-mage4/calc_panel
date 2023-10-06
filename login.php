@@ -24,7 +24,7 @@ if(isset($_POST['submit'])) {
     <div class="row vh-100 align-items-center justify-content-center">
         <div class="col-lg-4 col-md-6">
             <h5 class="text-center text-danger mb-3 font-weight-bold"><?=$msg?></h5>
-            <h3 class="text-center mb-3 font-weight-bold">Multiple Purpose Calculator | Login</h3>
+            <h3 class="text-center mb-3 font-weight-bold">Multiple Purpose Calculator Login</h3>
             <form id="login-form" action="" method="post">
                 <div class="row">
                     <div class="col-12 mb-3">
