@@ -249,11 +249,11 @@ if ($guest != 'yes' && !is_loggedin()) {
                         </div>
 
                         <!-- Flour Calculator -->
-                        <div id="flour-calculator" style="display: none;">
-                            <div class="container" id="calculator-container">
+                    <div id="flour-calculator" style="display: none;">
+                            <div class="container" id="flour-calculator-container">
                                 <h3 class="text-center">Flour Calculator</h3>
-                            <div class="formula-line" id="formula-line"></div>
-                            <div class="result-container" id="result-container">
+                            <div class="formula-line" id="flour-formula-line"></div>
+                            <div class="result-container" id="flour-result-container">
                                 <div class="result-box">
                                     <table>
                                         <tr>
@@ -261,75 +261,75 @@ if ($guest != 'yes' && !is_loggedin()) {
                                             <th class="remaining">Remaining</th>
                                         </tr>
                                         <tr>
-                                            <td id="result1" class="profit">2.000 KG</td>
-                                            <td id="result2" class="remaining">38.000 KG</td>
+                                            <td id="flour-result1" class="profit">2.000 KG</td>
+                                            <td id="flour-result2" class="remaining">38.000 KG</td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
                             <div class="input-container">
                                 <p class="kgs">Enter the amount (in KGs): </p>
-                                <input type="number" id="amountInput" step="0.01">
-                                <span class="clear-input" id="clearInput" onclick="clearInputField()">&#10006;</span>
-                                <span class="history-icon" id="historyIcon" onclick="showCalculationHistory()">&#x21BB;</span>
+                                <input type="number" id="flour-amountInput" step="0.01">
+                                <span class="clear-input" id="flour-clearInput" onclick="flour_clearInputField()">&#10006;</span>
+                                <span class="history-icon" id="flour-historyIcon" onclick="flour_showCalculationHistory()">&#x21BB;</span>
                                 </p>
 
 
                                 <div class="search-container">
-                                    <input type="text" id="clientSearch" placeholder="Clients..." onkeyup="filterClients()" oninput="filterClients()">
-                                    <i id="addClientButton" class="fas fa-plus-circle" onclick="addNewClientPopup()"></i>
-                                    <span class="clear-input2" onclick="clearClientInputField()">&#10006;</span>
-                                    <div id="clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
+                                    <input type="text" id="flour-clientSearch" placeholder="Clients..." onkeyup="flour_filterClients()" oninput="flour_filterClients()">
+                                    <i id="flour-addClientButton" class="fas fa-plus-circle" onclick="flour_addNewClientPopup()"></i>
+                                    <span class="clear-input2" onclick="flour_clearClientInputField()">&#10006;</span>
+                                    <div id="flour-clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
                                 </div>
 
-                                <div id="addClientModal" class="modal">
+                                <div id="flour-addClientModal" class="modal">
                                     <div class="modal-content">
-                                        <span class="close-icon" onclick="closeAddClientModal()">&times;</span>
+                                        <span class="close-icon" onclick="flour_closeAddClientModal()">&times;</span>
                                         <h2>Add New Client</h2>
-                                        <input type="text" id="clientName" class="input-field" placeholder="Client Name">
-                                        <input type="text" id="clientArea" class="input-field" placeholder="Client Area">
-                                        <p> <button class="add-btn" onclick="addClient()">Add</button></p>
+                                        <input type="text" id="flour-clientName" class="input-field" placeholder="Client Name">
+                                        <input type="text" id="flour-clientArea" class="input-field" placeholder="Client Area">
+                                        <p> <button class="add-btn" onclick="flour_addClient()">Add</button></p>
                                     </div>
                                 </div>
 
 
 
 
-                                <button class="calculate-button" onclick="calculateFlour()">Calculate</button>
+                                <button class="calculate-button" onclick="flour_calculateFlour()">Calculate</button>
                             </div>
-                            <div class="result-line" id="result-line"></div>
+                            <div class="result-line" id="flour-result-line"></div>
 
                             </div>
 
-                            <div class="popup" id="historyPopup">
-                            <div class="popup-content">
-                                <a href="" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
-                                <span class="popup-close" onclick="closePopup()">&#10006;</span>
-                                <h2>Calculation History</h2>
-                                <table class="popup-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Time</th>
-                                            <th>Client</th> <!-- New Column -->
-                                            <th>Original</th>
-                                            <th>Profit</th>
-                                            <th>Rest</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="historyTable">
-                                        <!-- History table rows will be added here -->
-                                    </tbody>
-                                </table>
+                            <div class="popup" id="flour-historyPopup">
+                                <div class="popup-content">
+                                    <a href="" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
+                                    <span class="popup-close" onclick="flour_closePopup()">&#10006;</span>
+                                    <h2>Calculation History</h2>
+                                    <table class="popup-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th>Client</th> <!-- New Column -->
+                                                <th>Original</th>
+                                                <th>Profit</th>
+                                                <th>Rest</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="flour-historyTable">
+                                            <!-- History table rows will be added here -->
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            </div>
-                        </div>
+                    </div>
 
                          <!-- Rice Calculator -->
-                    <div id="rice-calculator" style="display: none;">
-                        <div class="container" id="calculator-container">
-                            <h3 class="text-center">Rice Calculator</h3>
-                            <div class="formula-line" id="formula-line"></div>
-                            <div class="result-container" id="result-container">
+                        <div id="rice-calculator" style="display: none;">
+                            <div class="container" id="rice-calculator-container">
+                                <h3 class="text-center">Flour Calculator</h3>
+                            <div class="formula-line" id="rice-formula-line"></div>
+                            <div class="result-container" id="rice-result-container">
                                 <div class="result-box">
                                     <table>
                                         <tr>
@@ -337,33 +337,33 @@ if ($guest != 'yes' && !is_loggedin()) {
                                             <th class="remaining">Remaining</th>
                                         </tr>
                                         <tr>
-                                            <td id="result1" class="profit">2.000 KG</td>
-                                            <td id="result2" class="remaining">38.000 KG</td>
+                                            <td id="rice-result1" class="profit">2.000 KG</td>
+                                            <td id="rice-result2" class="remaining">38.000 KG</td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
                             <div class="input-container">
                                 <p class="kgs">Enter the amount (in KGs): </p>
-                                <input type="number" id="amountInput" step="0.01">
-                                <span class="clear-input" id="clearInput" onclick="clearInputField()">&#10006;</span>
-                                <span class="history-icon" id="historyIcon" onclick="showCalculationHistory()">&#x21BB;</span>
+                                <input type="number" id="rice-amountInput" step="0.01">
+                                <span class="clear-input" id="rice-clearInput" onclick="clearInputField()">&#10006;</span>
+                                <span class="history-icon" id="rice-historyIcon" onclick="showCalculationHistory()">&#x21BB;</span>
                                 </p>
 
 
                                 <div class="search-container">
-                                    <input type="text" id="clientSearch" placeholder="Clients..." onkeyup="filterClients()" oninput="filterClients()">
-                                    <i id="addClientButton" class="fas fa-plus-circle" onclick="addNewClientPopup()"></i>
+                                    <input type="text" id="rice-clientSearch" placeholder="Clients..." onkeyup="filterClients()" oninput="filterClients()">
+                                    <i id="rice-addClientButton" class="fas fa-plus-circle" onclick="addNewClientPopup()"></i>
                                     <span class="clear-input2" onclick="clearClientInputField()">&#10006;</span>
-                                    <div id="clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
+                                    <div id="rice-clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
                                 </div>
 
-                                <div id="addClientModal" class="modal">
+                                <div id="rice-addClientModal" class="modal">
                                     <div class="modal-content">
                                         <span class="close-icon" onclick="closeAddClientModal()">&times;</span>
                                         <h2>Add New Client</h2>
-                                        <input type="text" id="clientName" class="input-field" placeholder="Client Name">
-                                        <input type="text" id="clientArea" class="input-field" placeholder="Client Area">
+                                        <input type="text" id="rice-clientName" class="input-field" placeholder="Client Name">
+                                        <input type="text" id="rice-clientArea" class="input-field" placeholder="Client Area">
                                         <p> <button class="add-btn" onclick="addClient()">Add</button></p>
                                     </div>
                                 </div>
@@ -373,11 +373,11 @@ if ($guest != 'yes' && !is_loggedin()) {
 
                                 <button class="calculate-button" onclick="calculateFlour()">Calculate</button>
                             </div>
-                            <div class="result-line" id="result-line"></div>
+                            <div class="result-line" id="rice-result-line"></div>
 
-                        </div>
+                            </div>
 
-                        <div class="popup" id="historyPopup">
+                            <div class="popup" id="rice-historyPopup">
                             <div class="popup-content">
                                 <a href="" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
                                 <span class="popup-close" onclick="closePopup()">&#10006;</span>
@@ -392,13 +392,13 @@ if ($guest != 'yes' && !is_loggedin()) {
                                             <th>Rest</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="historyTable">
+                                    <tbody id="rice-historyTable">
                                         <!-- History table rows will be added here -->
                                     </tbody>
                                 </table>
                             </div>
+                            </div>
                         </div>
-                    </div>
 
                     <!-- Sugar Calculator -->
                     <div id="sugar-calculator" style="display: none;">
