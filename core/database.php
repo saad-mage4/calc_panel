@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 $host = $_SERVER['HTTP_HOST'];
 if ($host == 'localhost') {
     $dirPath = 'calc_panel';
