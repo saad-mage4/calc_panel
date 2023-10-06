@@ -21,4 +21,4 @@ if ($host == 'localhost') {
 
 // Global Usage Variables
 define('site_url', $url);
-define('website_title', 'Multiple Calculator App');
+define('website_title', 'Multiple Purpose Calculator App');
