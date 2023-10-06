@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
         <div class="row vh-100 align-items-center justify-content-center">
             <div class="col-lg-8 col-md-6">
                 <h5 class="text-center <?= ($msgStatus == 0) ? 'text-danger' : 'text-success' ?> mb-3 font-weight-bold"><?= $msg ?></h5>
-                <h3 class="text-center mb-3 font-weight-bold">Pet Panel | Register</h3>
+                <h3 class="text-center mb-3 font-weight-bold">Calculator | Register</h3>
                 <form id="login-form" action="" method="post">
                     <div class="row">
                         <div class="col-6 mb-3">
