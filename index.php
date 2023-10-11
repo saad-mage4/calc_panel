@@ -51,7 +51,7 @@ if ($guest != 'yes' && !is_loggedin()) {
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer basic-calc">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="basic_calculator.php?guest=yes" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
@@ -188,66 +188,6 @@ if ($guest != 'yes' && !is_loggedin()) {
                     <!-- left column -->
                     <div class="col-md-12">
 
-                        <!-- Basic Calculator -->
-                        <div class="container-calc" style="display: none;">
-                            <div class="calculator-basic">
-                                <form>
-                                    <div class="display">
-                                        <input type="text" name="display" id="display">
-                                    </div>
-                                    <div>
-                                        <input type="button" value="CE" onclick="clearDisplay()" style="background-color: #DF908A; border-bottom: 2px solid #C13A33; border-right: 2px solid #C13A33; border-left: 2px solid #C13A33;">
-
-                                        <input type="button" value="%" onclick="addPercentage()" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                        <input type="button" value="+/-" onclick="toggleSign()" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                        <input type="button" value="÷" onclick="addToDisplay('÷')" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                    </div>
-                                    <div>
-                                        <input type="button" value="7" onclick="addToDisplay('7')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="8" onclick="addToDisplay('8')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="9" onclick="addToDisplay('9')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="×" onclick="addToDisplay('×')" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                    </div>
-                                    <div>
-                                        <input type="button" value="4" onclick="addToDisplay('4')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="5" onclick="addToDisplay('5')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="6" onclick="addToDisplay('6')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="-" onclick="addToDisplay('-')" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-                                    </div>
-                                    <div>
-                                        <input type="button" value="1" onclick="addToDisplay('1')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="2" onclick="addToDisplay('2')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="3" onclick="addToDisplay('3')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="+" onclick="addToDisplay('+')" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                    </div>
-                                    <div>
-                                        <input type="button" value="0" onclick="addToDisplay('0')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="." onclick="addToDisplay('.')" style="background-color: #B8B8AE;border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="⌫" onclick="backspace()" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="=" onclick="calculateResult()" style="background-color: #EFAA5F; color: black; border-bottom: 2px solid #E86D27; border-right: 2px solid #E86D27; border-left: 2px solid #E86D27;">
-
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
                         <!-- Flour Calculator -->
                     <div id="flour-calculator" style="display: none;">
                             <div class="container" id="flour-calculator-container">
@@ -269,8 +209,10 @@ if ($guest != 'yes' && !is_loggedin()) {
                             </div>
                             <div class="input-container">
                                 <p class="kgs">Enter the amount (in KGs): </p>
-                                <input type="number" id="flour-amountInput" step="0.01">
-                                <span class="clear-input" id="flour-clearInput" onclick="flour_clearInputField()">&#10006;</span>
+                                <div class="number-container">
+                                    <input type="number" id="flour-amountInput" step="0.01">
+                                    <span class="clear-input" id="flour-clearInput" onclick="flour_clearInputField()">&#10006;</span>
+                                </div>
                                 <span class="history-icon" id="flour-historyIcon" onclick="flour_showCalculationHistory()">&#x21BB;</span>
                                 </p>
 
@@ -345,8 +287,10 @@ if ($guest != 'yes' && !is_loggedin()) {
                             </div>
                             <div class="input-container">
                                 <p class="kgs">Enter the amount (in KGs): </p>
-                                <input type="number" id="rice-amountInput" step="0.01">
-                                <span class="clear-input" id="rice-clearInput" onclick="rice_clearInputField()">&#10006;</span>
+                                <div class="number-container">
+                                    <input type="number" id="rice-amountInput" step="0.01">
+                                    <span class="clear-input" id="rice-clearInput" onclick="rice_clearInputField()">&#10006;</span>
+                                </div>
                                 <span class="history-icon" id="rice-historyIcon" onclick="rice_showCalculationHistory()">&#x21BB;</span>
                                 </p>
 
@@ -421,8 +365,10 @@ if ($guest != 'yes' && !is_loggedin()) {
                             </div>
                             <div class="input-container">
                                 <p class="kgs">Enter the amount (in KGs): </p>
-                                <input type="number" id="sugar-amountInput" step="0.01">
-                                <span class="clear-input" id="sugar-clearInput" onclick="sugar_clearInputField()">&#10006;</span>
+                                <div class="number-container">
+                                    <input type="number" id="sugar-amountInput" step="0.01">
+                                    <span class="clear-input" id="sugar-clearInput" onclick="sugar_clearInputField()">&#10006;</span>
+                                </div>
                                 <span class="history-icon" id="sugar-historyIcon" onclick="sugar_showCalculationHistory()">&#x21BB;</span>
                                 </p>
 
@@ -657,11 +603,11 @@ if ($guest != 'yes' && !is_loggedin()) {
             });
         });
 
-        $('.basic-calc').on('click', function(e) {
-            e.preventDefault();
-            $('#flour-calculator, #rice-calculator, #sugar-calculator').hide();
-            $('.container-calc').show('slow');
-        });
+        // $('.basic-calc').on('click', function(e) {
+        //     e.preventDefault();
+        //     $('#flour-calculator, #rice-calculator, #sugar-calculator').hide();
+        //     $('.container-calc').show('slow');
+        // });
         $('.flour-cal').on('click', function(e) {
             e.preventDefault();
             $('.container-calc, #rice-calculator, #sugar-calculator').hide();
@@ -682,7 +628,3 @@ if ($guest != 'yes' && !is_loggedin()) {
 
     });
 </script>
-
-
-
-<script src="./dist/js/basic-calc.js"></script>

@@ -40,6 +40,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .calculator-basic {
@@ -98,6 +102,7 @@
 #flour-calculator-container,
 #rice-calculator-container,
 #sugar-calculator-container {
+  position: relative;
   max-width: 450px;
   margin: 0 auto;
   background-color: white;
@@ -126,21 +131,19 @@
 #flour-calculator-container input[type=number],
 #rice-calculator-container input[type=number],
 #sugar-calculator-container input[type=number] {
-  width: 42%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
   display: block;
-  margin: 0 auto;
   font-size: 18px;
-  padding-right: 30px;
 }
 #flour-calculator-container .clear-input,
 #rice-calculator-container .clear-input,
 #sugar-calculator-container .clear-input {
   position: absolute;
-  right: 15px;
-  top: 80%;
+  right: -35px;
+  top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 32px;
@@ -151,7 +154,7 @@
 #sugar-calculator-container .history-icon {
   position: absolute;
   right: 16px;
-  top: 31%;
+  top: 30px;
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 34px;
@@ -260,7 +263,6 @@
 #rice-calculator-container .input-container,
 #sugar-calculator-container .input-container {
   margin-top: 20px;
-  position: relative;
   text-align: center;
 }
 #flour-calculator-container .result-line,
@@ -419,8 +421,8 @@
 #sugar-calculator-container .fa-solid,
 #sugar-calculator-container .fas {
   position: absolute;
-  top: 53%;
-  right: 21%;
+  top: 50%;
+  right: 0;
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 128%;
@@ -613,9 +615,15 @@
   margin-bottom: 4%;
 }
 
+.number-container {
+  position: relative;
+  max-width: 200px;
+  margin-inline: auto;
+}
+
 .clear-input2 {
   position: absolute;
-  right: -3%;
+  right: -20%;
   top: 48%;
   transform: translateY(-50%);
   font-size: 90%;
@@ -628,6 +636,13 @@
   overflow: hidden;
   position: fixed;
   width: 100%;
+}
+
+#displaySpan {
+  font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
 }
 
 @media (max-width: 599px) {

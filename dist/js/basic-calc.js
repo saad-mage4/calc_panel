@@ -1,5 +1,6 @@
 // BASIC CALCULATOR START
     let display = document.getElementById('display');
+    let displaySpan = document.getElementById('displaySpan');
     let lastChar = '';
 
     function addToDisplay(value) {
@@ -16,6 +17,7 @@
         // Append the value to the display and update lastChar
         display.value += value;
         lastChar = value;
+        calculateResultSpan();
     }
 
     function addPercentage() {
@@ -36,10 +38,21 @@
             display.value = 'Error';
         }
     }
+    function calculateResultSpan() {
+        try {
+            // Replace ÷, ×, and % with /, *, and /100 respectively for evaluation
+            const expression = display.value.replace(/÷/g, '/').replace(/×/g, '*').replace(/%/g, '/100');
+            displaySpan.innerHTML = eval(expression);
+        } catch (error) {
+            // Handle errors by displaying "Error"
+            displaySpan.innerHTML = '';
+        }
+    }
 
     function clearDisplay() {
         // Clear the display
         display.value = '';
+        displaySpan.innerHTML = '';
     }
 
     function toggleSign() {
@@ -57,22 +70,22 @@
     }
 
     // Event listener for keyboard input
-    // document.addEventListener('keydown', (event) => {
-    //     const key = event.key;
+    document.addEventListener('keydown', (event) => {
+        const key = event.key;
 
-    //     // Allow numeric keys and some special keys
-    //     if (/^[0-9%\+\-\*\/\.\r\n]$/.test(key)) {
-    //         addToDisplay(key);
-    //     } else if (key === 'Enter') {
-    //         calculateResult();
-    //     } else if (key === 'Escape') {
-    //         clearDisplay();
-    //     } else if (key === 'Backspace') {
-    //         backspace();
-    //     }
+        // Allow numeric keys and some special keys
+        if (/^[0-9%\+\-\*\/\.\r\n]$/.test(key)) {
+            addToDisplay(key);
+        } else if (key === 'Enter') {
+            calculateResult();
+        } else if (key === 'Escape') {
+            clearDisplay();
+        } else if (key === 'Backspace') {
+            backspace();
+        }
 
-    //     event.preventDefault(); // Prevent default action (e.g., page scrolling)
-    // });
+        event.preventDefault(); // Prevent default action (e.g., page scrolling)
+    });
 
 
 // BASIC CALCULATOR END
