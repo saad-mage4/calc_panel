@@ -65,7 +65,7 @@ if ($guest != 'yes' && !is_loggedin()) {
 
                                 <div id="sugar-addClientModal" class="modal">
                                     <div class="modal-content">
-                                        <span class="close-icon" onclick="sugar_closeAddClientModal()">&times;</span>
+                                        <span class="close" onclick="sugar_closeAddClientModal()"><span class="fas fa-times"></span></span>
                                         <h2>Add New Client</h2>
                                         <input type="text" id="sugar-clientName" class="input-field" placeholder="Client Name">
                                         <input type="text" id="sugar-clientArea" class="input-field" placeholder="Client Area">

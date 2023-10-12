@@ -64,7 +64,7 @@ if ($guest != 'yes' && !is_loggedin()) {
 
                                 <div id="rice-addClientModal" class="modal">
                                     <div class="modal-content">
-                                        <span class="close-icon" onclick="rice_closeAddClientModal()">&times;</span>
+                                        <span class="close" onclick="rice_closeAddClientModal()"><span class="fas fa-times"></span></span>
                                         <h2>Add New Client</h2>
                                         <input type="text" id="rice-clientName" class="input-field" placeholder="Client Name">
                                         <input type="text" id="rice-clientArea" class="input-field" placeholder="Client Area">

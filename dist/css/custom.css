@@ -114,6 +114,7 @@
   opacity: 1;
   transform: translateY(0);
   overflow: hidden;
+  min-height: 330px;
 }
 #flour-calculator-container::before,
 #rice-calculator-container::before,
@@ -141,6 +142,13 @@
   left: 60%;
   top: 0;
   z-index: -1;
+}
+@media (max-width: 599px) {
+  #flour-calculator-container::after,
+  #rice-calculator-container::after,
+  #sugar-calculator-container::after {
+    left: 55%;
+  }
 }
 #flour-calculator-container p,
 #rice-calculator-container p,
@@ -233,17 +241,18 @@
 #sugar-calculator-container .result-box {
   width: 100%;
   margin: 0 auto;
-  padding: 10px;
-  border: 1px solid #ccc;
+  border: 5px solid #ccc;
   border-radius: 5px;
   transition: background-color 0.3s ease-in-out;
   margin-top: 20px;
   display: inline-block;
+  background-color: #222;
 }
 #flour-calculator-container .result-box table,
 #rice-calculator-container .result-box table,
 #sugar-calculator-container .result-box table {
   width: 100%;
+  text-align: center;
 }
 #flour-calculator-container .result-box table th,
 #flour-calculator-container .result-box table td,
@@ -251,31 +260,20 @@
 #rice-calculator-container .result-box table td,
 #sugar-calculator-container .result-box table th,
 #sugar-calculator-container .result-box table td {
-  background-color: #3d84a8;
+  background-color: #555;
   color: #fff;
-  padding: 5px;
+  padding: 10px;
 }
 #flour-calculator-container .result-box table td,
 #rice-calculator-container .result-box table td,
 #sugar-calculator-container .result-box table td {
-  padding: 5px;
   text-align: center;
   font-weight: bold;
-}
-#flour-calculator-container .result-box table tr:first-child th,
-#rice-calculator-container .result-box table tr:first-child th,
-#sugar-calculator-container .result-box table tr:first-child th {
-  color: #fff;
-}
-#flour-calculator-container .result-box table td:first-child,
-#rice-calculator-container .result-box table td:first-child,
-#sugar-calculator-container .result-box table td:first-child {
-  text-align: left;
 }
 #flour-calculator-container .result-box:hover,
 #rice-calculator-container .result-box:hover,
 #sugar-calculator-container .result-box:hover {
-  background-color: #e0e0e0;
+  border-color: orangered;
 }
 #flour-calculator-container .visible,
 #rice-calculator-container .visible,
@@ -305,7 +303,7 @@
 #rice-calculator-container .result-line,
 #sugar-calculator-container .result-line {
   background-color: #fff;
-  padding: 5px;
+  padding: 8px;
   display: none;
 }
 #flour-calculator-container .formula-line,
@@ -318,17 +316,27 @@
   display: block;
   text-align: center;
 }
-#flour-calculator-container .result-box .profit,
-#rice-calculator-container .result-box .profit,
-#sugar-calculator-container .result-box .profit {
-  background-color: #9bc992;
-  color: black;
+#flour-calculator-container .result-box tr th:first-child,
+#flour-calculator-container .result-box tr td:first-child,
+#rice-calculator-container .result-box tr th:first-child,
+#rice-calculator-container .result-box tr td:first-child,
+#sugar-calculator-container .result-box tr th:first-child,
+#sugar-calculator-container .result-box tr td:first-child {
+  background: linear-gradient(25deg, limegreen 10%, lime 80%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
 }
-#flour-calculator-container .result-box .remaining,
-#rice-calculator-container .result-box .remaining,
-#sugar-calculator-container .result-box .remaining {
-  background-color: #b9b6ff;
-  color: black;
+#flour-calculator-container .result-box tr th:last-child,
+#flour-calculator-container .result-box tr td:last-child,
+#rice-calculator-container .result-box tr th:last-child,
+#rice-calculator-container .result-box tr td:last-child,
+#sugar-calculator-container .result-box tr th:last-child,
+#sugar-calculator-container .result-box tr td:last-child {
+  background: linear-gradient(25deg, orangered 10%, orange 80%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
 }
 #flour-calculator-container .modal,
 #rice-calculator-container .modal,
@@ -347,13 +355,15 @@
 #sugar-calculator-container .modal-content {
   width: 100%;
   max-width: 350px;
-  margin: 2% auto;
   background-color: #fff;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   position: relative;
   align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #flour-calculator-container .close,
 #rice-calculator-container .close,
@@ -566,7 +576,7 @@
 
 .client-dropdown {
   border: 1px solid #ccc;
-  max-height: 75px;
+  max-height: 100px;
   overflow-y: auto;
   position: absolute;
   width: 100%; /* Ensure it matches the input field width */

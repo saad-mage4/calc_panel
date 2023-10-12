@@ -3,8 +3,10 @@
         // FLOUR CALCULATOR START
 
         const flour_clients = JSON.parse(localStorage.getItem("clients")) || [];
+        const rice_clients = JSON.parse(localStorage.getItem("clients")) || [];
+        const sugar_clients = JSON.parse(localStorage.getItem("clients")) || [];
     
-        function closeClientDropdown() {
+        function flour_closeClientDropdown() {
             const clientDropdown = document.getElementById("flour-clientDropdown");
             clientDropdown.style.display = 'none';
         }
@@ -117,7 +119,7 @@
             clientDropdown.appendChild(addNewDiv);
             const closeDiv = document.createElement("div");
             closeDiv.innerHTML = "<strong>Close</strong>";
-            closeDiv.onclick = closeClientDropdown;
+            closeDiv.onclick = flour_closeClientDropdown;
             clientDropdown.appendChild(closeDiv);
         }
     
@@ -173,18 +175,10 @@
     // FLOUR CALCULATOR END
 
 
-
-
-
-
-
-
-
             // RICE CALCULATOR START
 
-            const rice_clients = JSON.parse(localStorage.getItem("clients")) || [];
     
-            function closeClientDropdown() {
+            function rice_closeClientDropdown() {
                 const clientDropdown = document.getElementById("rice-clientDropdown");
                 clientDropdown.style.display = 'none';
             }
@@ -297,7 +291,7 @@
                 clientDropdown.appendChild(addNewDiv);
                 const closeDiv = document.createElement("div");
                 closeDiv.innerHTML = "<strong>Close</strong>";
-                closeDiv.onclick = closeClientDropdown;
+                closeDiv.onclick = rice_closeClientDropdown;
                 clientDropdown.appendChild(closeDiv);
             }
         
@@ -353,17 +347,10 @@
         // RICE CALCULATOR END
 
 
-
-
-
-
-
-
      // SUGAR CALCULATOR START
 
-     const sugar_clients = JSON.parse(localStorage.getItem("clients")) || [];
-    
-     function closeClientDropdown() {
+     
+     function sugar_closeClientDropdown() {
          const clientDropdown = document.getElementById("sugar-clientDropdown");
          clientDropdown.style.display = 'none';
      }
@@ -476,7 +463,7 @@
          clientDropdown.appendChild(addNewDiv);
          const closeDiv = document.createElement("div");
          closeDiv.innerHTML = "<strong>Close</strong>";
-         closeDiv.onclick = closeClientDropdown;
+         closeDiv.onclick = sugar_closeClientDropdown;
          clientDropdown.appendChild(closeDiv);
      }
  

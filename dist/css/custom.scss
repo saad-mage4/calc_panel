@@ -1,3 +1,11 @@
+@mixin responsive($size) {
+  @if ($size== "mobile") {
+    @media (max-width: 599px) {
+      @content;
+    }
+  }
+}
+
 .btns {
   display: flex;
   flex-direction: column;
@@ -119,8 +127,9 @@
   opacity: 1;
   transform: translateY(0);
   overflow: hidden;
+  min-height: 330px;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     background-color: orangered;
     width: 400px;
@@ -141,6 +150,9 @@
     left: 60%;
     top: 0;
     z-index: -1;
+    @include responsive("mobile") {
+      left: 55%;
+    }
   }
 
   p {
@@ -183,7 +195,7 @@
     color: #fff;
   }
   .calculate-button {
-    background: linear-gradient(-45deg,orange 10%,orangered 70%);
+    background: linear-gradient(-45deg, orange 10%, orangered 70%);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -209,35 +221,32 @@
   .result-box {
     width: 100%;
     margin: 0 auto;
-    padding: 10px;
-    border: 1px solid #ccc;
+    border: 5px solid #ccc;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
     margin-top: 20px;
     display: inline-block;
+    background-color: #222;
   }
   .result-box table {
     width: 100%;
+    text-align: center;
   }
   .result-box table th,
   .result-box table td {
-    background-color: #3d84a8;
+    background-color: #555;
     color: #fff;
-    padding: 5px;
+    padding: 10px;
   }
   .result-box table td {
-    padding: 5px;
     text-align: center;
     font-weight: bold;
   }
-  .result-box table tr:first-child th {
-    color: #fff;
-  }
-  .result-box table td:first-child {
-    text-align: left;
-  }
+  // .result-box table td:first-child {
+  //   text-align: left;
+  // }
   .result-box:hover {
-    background-color: #e0e0e0;
+    border-color: orangered;
   }
   .visible {
     opacity: 1;
@@ -257,7 +266,7 @@
   }
   .result-line {
     background-color: #fff;
-    padding: 5px;
+    padding: 8px;
     display: none;
   }
   .formula-line {
@@ -268,13 +277,24 @@
     display: block;
     text-align: center;
   }
-  .result-box .profit {
-    background-color: #9bc992;
-    color: black;
+  .result-box {
+    tr {
+      th,
+      td {
+        &:first-child {
+          background: linear-gradient(25deg, limegreen 10%, lime 80%);
+          background-clip: text;
+          color: transparent;
+        }
+        &:last-child {
+          background: linear-gradient(25deg, orangered 10%, orange 80%);
+          background-clip: text;
+          color: transparent;
+        }
+      }
+    }
   }
   .result-box .remaining {
-    background-color: #b9b6ff;
-    color: black;
   }
   .modal {
     display: none;
@@ -290,13 +310,15 @@
   .modal-content {
     width: 100%;
     max-width: 350px;
-    margin: 2% auto;
     background-color: #fff;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     position: relative;
     align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
 
   .close {
@@ -500,7 +522,7 @@
 
 .client-dropdown {
   border: 1px solid #ccc;
-  max-height: 75px;
+  max-height: 100px;
   overflow-y: auto;
   position: absolute;
   width: 100%; /* Ensure it matches the input field width */
@@ -573,10 +595,10 @@
 }
 
 .search-container input {
-	width: 100%;
-	border-radius: 5px;
-	border: 1px solid;
-	padding-inline: 5px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid;
+  padding-inline: 5px;
 }
 
 #clientSearch {
