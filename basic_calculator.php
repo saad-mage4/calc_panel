@@ -18,6 +18,7 @@ if ($guest != 'yes' && !is_loggedin()) {
                 include_once 'includes/aside.php';
             }
                 ?>
+<link rel="stylesheet" href="dist/css/for-calculator.css">
 
 
         <!-- Main content -->
