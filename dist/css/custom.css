@@ -26,6 +26,20 @@
   .sidebar-mini.sidebar-collapse-full-width .main-footer {
     margin-left: 0 !important;
   }
+  .small-box {
+    height: 300px;
+  }
+  .small-box > .inner {
+    height: calc(100% - 80px);
+  }
+  .small-box > .small-box-footer {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 30px;
+  }
 }
 .guest-login-btn {
   right: 55px;

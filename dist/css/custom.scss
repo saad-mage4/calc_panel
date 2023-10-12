@@ -36,6 +36,20 @@
   .sidebar-mini.sidebar-collapse-full-width .main-footer {
     margin-left: 0 !important;
   }
+  .small-box {
+    height: 300px;
+    > .inner {
+      height: calc(100% - 80px);
+    }
+    > .small-box-footer {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 30px;
+    }
+  }
 }
 
 // basic calc
@@ -318,7 +332,7 @@
     align-items: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
 
   .close {
