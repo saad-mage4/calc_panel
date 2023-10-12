@@ -22,10 +22,12 @@
   }
 }
 
-.sidebar-mini.sidebar-collapse-full-width .main-header,
-.sidebar-mini.sidebar-collapse-full-width .content-wrapper,
-.sidebar-mini.sidebar-collapse-full-width .main-footer {
-  margin-left: 0 !important;
+@media (min-width: 1200px) {
+  .sidebar-mini.sidebar-collapse-full-width .main-header,
+  .sidebar-mini.sidebar-collapse-full-width .content-wrapper,
+  .sidebar-mini.sidebar-collapse-full-width .main-footer {
+    margin-left: 0 !important;
+  }
 }
 
 // basic calc
@@ -46,7 +48,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .calculator-basic {
@@ -116,6 +118,31 @@
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   opacity: 1;
   transform: translateY(0);
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: orangered;
+    width: 400px;
+    height: 100px;
+    opacity: 0.8;
+    transform: rotate(40deg);
+    right: 55%;
+    bottom: 0;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: #000;
+    width: 400px;
+    height: 100px;
+    opacity: 0.5;
+    transform: rotate(40deg);
+    left: 60%;
+    top: 0;
+    z-index: -1;
+  }
+
   p {
     margin: 10px 0;
   }
@@ -132,15 +159,19 @@
     border-radius: 3px;
     display: block;
     font-size: 18px;
+    height: 35px;
+    appearance: none;
+    -webkit-appearance: textfield;
   }
-  .clear-input {
+  .clear-input,
+  .clear-input2 {
     position: absolute;
     right: -35px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 32px;
-    color: #c25900;
+    font-size: 22px;
+    color: red;
   }
   .history-icon {
     position: absolute;
@@ -149,10 +180,10 @@
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 34px;
-    color: #21bb;
+    color: #fff;
   }
   .calculate-button {
-    background-color: #d56e00;
+    background: linear-gradient(-45deg,orange 10%,orangered 70%);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -257,21 +288,22 @@
   }
 
   .modal-content {
-    width: 94%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 350px;
     margin: 2% auto;
     background-color: #fff;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     position: relative;
+    align-items: center;
   }
 
   .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    font-size: 22px;
     cursor: pointer;
   }
 
@@ -352,10 +384,10 @@
   .fas {
     position: absolute;
     top: 50%;
-    right: 0;
+    left: -35px;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 128%;
+    font-size: 22px;
   }
 }
 
@@ -468,7 +500,7 @@
 
 .client-dropdown {
   border: 1px solid #ccc;
-  max-height: 560%;
+  max-height: 75px;
   overflow-y: auto;
   position: absolute;
   width: 100%; /* Ensure it matches the input field width */
@@ -535,11 +567,20 @@
 }
 .search-container {
   position: relative;
-  width: 42%;
+  width: 100%;
+  max-width: 160px;
   display: inline-block;
 }
+
+.search-container input {
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid;
+	padding-inline: 5px;
+}
+
 #clientSearch {
-  width: 124%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -559,27 +600,26 @@
 }
 .number-container {
   position: relative;
-  max-width: 200px;
+  max-width: 160px;
   margin-inline: auto;
 }
 
-.clear-input2 {
-  position: absolute;
-  right: -20%;
-  top: 48%;
-  transform: translateY(-50%);
-  font-size: 90%;
-  color: #c25900;
-  cursor: pointer;
-  font-size: 150%;
-}
+// .clear-input2 {
+//   position: absolute;
+//   right: -20%;
+//   top: 48%;
+//   transform: translateY(-50%);
+//   font-size: 90%;
+//   color: #c25900;
+//   cursor: pointer;
+//   font-size: 150%;
+// }
 
 .no-scroll {
   overflow: hidden;
   position: fixed;
   width: 100%;
 }
-
 
 #displaySpan {
   font-size: 18px;

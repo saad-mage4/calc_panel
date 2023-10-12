@@ -14,9 +14,9 @@ if ($guest != 'yes' && !is_loggedin()) {
     </script><?php
             }
             include_once 'includes/header.php';
-            if ($guest != 'yes') {
+            // if ($guest != 'yes') {
                 include_once 'includes/aside.php';
-            }
+            // }
                 ?>
 <link rel="stylesheet" href="dist/css/for-calculator.css">
 
@@ -52,20 +52,20 @@ if ($guest != 'yes' && !is_loggedin()) {
                                     <input type="number" id="flour-amountInput" step="0.01">
                                     <span class="clear-input" id="flour-clearInput" onclick="flour_clearInputField()"><span class="fa fa-times"></span></span>
                                 </div>
-                                <span class="history-icon" id="flour-historyIcon" onclick="flour_showCalculationHistory()">&#x21BB;</span>
+                                <span class="history-icon" id="flour-historyIcon" onclick="flour_showCalculationHistory()"><span class="fas fa-list"></span></span>
                                 </p>
 
 
                                 <div class="search-container">
-                                    <input type="text" id="flour-clientSearch" placeholder="Clients..." onkeyup="flour_filterClients()" oninput="flour_filterClients()">
                                     <i id="flour-addClientButton" class="fas fa-plus-circle" onclick="flour_addNewClientPopup()"></i>
+                                    <input type="text" id="flour-clientSearch" placeholder="Clients..." onkeyup="flour_filterClients()" oninput="flour_filterClients()">
                                     <span class="clear-input2" onclick="flour_clearClientInputField()"><span class="fa fa-times"></span></span>
                                     <div id="flour-clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
                                 </div>
 
                                 <div id="flour-addClientModal" class="modal">
                                     <div class="modal-content">
-                                        <span class="close-icon" onclick="flour_closeAddClientModal()">&times;</span>
+                                        <span class="close" onclick="flour_closeAddClientModal()"><span class="fas fa-times"></span></span>
                                         <h2>Add New Client</h2>
                                         <input type="text" id="flour-clientName" class="input-field" placeholder="Client Name">
                                         <input type="text" id="flour-clientArea" class="input-field" placeholder="Client Area">

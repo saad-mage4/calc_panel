@@ -55,12 +55,12 @@
                 historyTable.appendChild(row);
             });
             historyPopup.style.display = "block";
-            document.getElementById("flour-historyIcon").innerHTML = "&#x21BB;";
+            // document.getElementById("flour-historyIcon").innerHTML = "&#x21BB;";
         }
     
         function flour_closePopup() {
             document.getElementById("flour-historyPopup").style.display = "none";
-            document.getElementById("flour-historyIcon").innerHTML = "&#x21BB;";
+            // document.getElementById("flour-historyIcon").innerHTML = "&#x21BB;";
         }
     
         function flour_storeCalculationHistory(input, profit, remaining) {
@@ -235,12 +235,12 @@
                     historyTable.appendChild(row);
                 });
                 historyPopup.style.display = "block";
-                document.getElementById("rice-historyIcon").innerHTML = "&#x21BB;";
+                // document.getElementById("rice-historyIcon").innerHTML = "&#x21BB;";
             }
         
             function rice_closePopup() {
                 document.getElementById("rice-historyPopup").style.display = "none";
-                document.getElementById("rice-historyIcon").innerHTML = "&#x21BB;";
+                // document.getElementById("rice-historyIcon").innerHTML = "&#x21BB;";
             }
         
             function rice_storeCalculationHistory(input, profit, remaining) {
@@ -414,12 +414,12 @@
              historyTable.appendChild(row);
          });
          historyPopup.style.display = "block";
-         document.getElementById("sugar-historyIcon").innerHTML = "&#x21BB;";
+        //  document.getElementById("sugar-historyIcon").innerHTML = "&#x21BB;";
      }
  
      function sugar_closePopup() {
          document.getElementById("sugar-historyPopup").style.display = "none";
-         document.getElementById("sugar-historyIcon").innerHTML = "&#x21BB;";
+        //  document.getElementById("sugar-historyIcon").innerHTML = "&#x21BB;";
      }
  
      function sugar_storeCalculationHistory(input, profit, remaining) {

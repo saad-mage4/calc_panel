@@ -14,9 +14,9 @@ if ($guest != 'yes' && !is_loggedin()) {
     </script><?php
             }
             include_once 'includes/header.php';
-            if ($guest != 'yes') {
+            // if ($guest != 'yes') {
                 include_once 'includes/aside.php';
-            }
+            // }
                 ?>
 <link rel="stylesheet" href="dist/css/for-calculator.css">
 

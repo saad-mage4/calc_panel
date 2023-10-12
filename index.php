@@ -8,15 +8,13 @@ if($guest == 'yes') {
     $role = '';
 }
 require_once 'core/database.php';
-if ($guest != 'yes' && !is_loggedin()) {
-?><script>
-        window.location.href = "login.php";
-    </script><?php
-            }
+// if ($guest != 'yes' && !is_loggedin()) {
+
+            // }
             include_once 'includes/header.php';
-            if ($guest != 'yes') {
+            // if ($guest != 'yes') {
                 include_once 'includes/aside.php';
-            }
+            // }
                 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -76,7 +74,7 @@ if ($guest != 'yes' && !is_loggedin()) {
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer rice-calc">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="./rice_calculator.php?guest=yes" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -89,7 +87,7 @@ if ($guest != 'yes' && !is_loggedin()) {
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer sugar-calc">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="sugar_calculator.php?guest=yes" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -187,164 +185,6 @@ if ($guest != 'yes' && !is_loggedin()) {
                 <div class="row">
                     <!-- left column -->
                     <div class="col-md-12">
-
-                    
-
-                         <!-- Rice Calculator -->
-                        <div id="rice-calculator" style="display: none;">
-                            <div class="container" id="rice-calculator-container">
-                                <h3 class="text-center">Rice Calculator</h3>
-                            <div class="formula-line" id="rice-formula-line"></div>
-                            <div class="result-container" id="rice-result-container">
-                                <div class="result-box">
-                                    <table>
-                                        <tr>
-                                            <th class="profit">Profit</th>
-                                            <th class="remaining">Remaining</th>
-                                        </tr>
-                                        <tr>
-                                            <td id="rice-result1" class="profit">2.000 KG</td>
-                                            <td id="rice-result2" class="remaining">38.000 KG</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <p class="kgs">Enter the amount (in KGs): </p>
-                                <div class="number-container">
-                                    <input type="number" id="rice-amountInput" step="0.01">
-                                    <span class="clear-input" id="rice-clearInput" onclick="rice_clearInputField()">&#10006;</span>
-                                </div>
-                                <span class="history-icon" id="rice-historyIcon" onclick="rice_showCalculationHistory()">&#x21BB;</span>
-                                </p>
-
-
-                                <div class="search-container">
-                                    <input type="text" id="rice-clientSearch" placeholder="Clients..." onkeyup="rice_filterClients()" oninput="rice_filterClients()">
-                                    <i id="rice-addClientButton" class="fas fa-plus-circle" onclick="rice_addNewClientPopup()"></i>
-                                    <span class="clear-input2" onclick="rice_clearClientInputField()">&#10006;</span>
-                                    <div id="rice-clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
-                                </div>
-
-                                <div id="rice-addClientModal" class="modal">
-                                    <div class="modal-content">
-                                        <span class="close-icon" onclick="rice_closeAddClientModal()">&times;</span>
-                                        <h2>Add New Client</h2>
-                                        <input type="text" id="rice-clientName" class="input-field" placeholder="Client Name">
-                                        <input type="text" id="rice-clientArea" class="input-field" placeholder="Client Area">
-                                        <p> <button class="add-btn" onclick="rice_addClient()">Add</button></p>
-                                    </div>
-                                </div>
-
-
-
-
-                                <button class="calculate-button" onclick="rice_calculateFlour()">Calculate</button>
-                            </div>
-                            <div class="result-line" id="rice-result-line"></div>
-
-                            </div>
-
-                            <div class="popup" id="rice-historyPopup">
-                            <div class="popup-content">
-                                <a href="login.php" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
-                                <span class="popup-close" onclick="rice_closePopup()">&#10006;</span>
-                                <h2>Rice Calculation History</h2>
-                                <table class="popup-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Time</th>
-                                            <th>Client</th> <!-- New Column -->
-                                            <th>Original</th>
-                                            <th>Profit</th>
-                                            <th>Rest</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="rice-historyTable">
-                                        <!-- History table rows will be added here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                            </div>
-                        </div>
-
-                    <!-- Sugar Calculator -->
-                    <div id="sugar-calculator" style="display: none;">
-                        <div class="container" id="sugar-calculator-container">
-                            <h3 class="text-center">Sugar Calculator</h3>
-                            <div class="formula-line" id="sugar-formula-line"></div>
-                            <div class="result-container" id="sugar-result-container">
-                                <div class="result-box">
-                                    <table>
-                                        <tr>
-                                            <th class="profit">Profit</th>
-                                            <th class="remaining">Remaining</th>
-                                        </tr>
-                                        <tr>
-                                            <td id="sugar-result1" class="profit">2.000 KG</td>
-                                            <td id="sugar-result2" class="remaining">38.000 KG</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <p class="kgs">Enter the amount (in KGs): </p>
-                                <div class="number-container">
-                                    <input type="number" id="sugar-amountInput" step="0.01">
-                                    <span class="clear-input" id="sugar-clearInput" onclick="sugar_clearInputField()">&#10006;</span>
-                                </div>
-                                <span class="history-icon" id="sugar-historyIcon" onclick="sugar_showCalculationHistory()">&#x21BB;</span>
-                                </p>
-
-
-                                <div class="search-container">
-                                    <input type="text" id="sugar-clientSearch" placeholder="Clients..." onkeyup="sugar_filterClients()" oninput="sugar_filterClients()">
-                                    <i id="sugar-addClientButton" class="fas fa-plus-circle" onclick="sugar_addNewClientPopup()"></i>
-                                    <span class="clear-input2" onclick="sugar_clearClientInputField()">&#10006;</span>
-                                    <div id="sugar-clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
-                                </div>
-
-                                <div id="sugar-addClientModal" class="modal">
-                                    <div class="modal-content">
-                                        <span class="close-icon" onclick="sugar_closeAddClientModal()">&times;</span>
-                                        <h2>Add New Client</h2>
-                                        <input type="text" id="sugar-clientName" class="input-field" placeholder="Client Name">
-                                        <input type="text" id="sugar-clientArea" class="input-field" placeholder="Client Area">
-                                        <p> <button class="add-btn" onclick="sugar_addClient()">Add</button></p>
-                                    </div>
-                                </div>
-
-
-
-
-                                <button class="calculate-button" onclick="sugar_calculateFlour()">Calculate</button>
-                            </div>
-                            <div class="result-line" id="sugar-result-line"></div>
-
-                        </div>
-
-                        <div class="popup" id="sugar-historyPopup">
-                            <div class="popup-content">
-                                <a href="login.php" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
-                                <span class="popup-close" onclick="sugar_closePopup()">&#10006;</span>
-                                <h2>Sugar Calculation History</h2>
-                                <table class="popup-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Time</th>
-                                            <th>Client</th> <!-- New Column -->
-                                            <th>Original</th>
-                                            <th>Profit</th>
-                                            <th>Rest</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="sugar-historyTable">
-                                        <!-- History table rows will be added here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
 
 
                     </div>
