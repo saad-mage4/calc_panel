@@ -89,6 +89,28 @@
   border-radius: 8px;
   background-color: #80bbcd;
   position: relative;
+  min-height: 80px;
+}
+
+.calculator-basic form .display .dis1,
+.calculator-basic form .display .dis2,
+.calculator-basic form .display .dis3 {
+  position: absolute;
+}
+.calculator-basic form .display .dis1 {
+  bottom: -2px;
+  right: 10px;
+}
+.calculator-basic form .display .dis2 {
+  bottom: -3px;
+  font-size: 18px;
+  left: 6px;
+}
+.calculator-basic form .display .dis3 {
+  top: 48%;
+  transform: translateY(-50%);
+  right: 5px;
+  font-size: 40px;
 }
 
 .calculator-basic form .display::before {
