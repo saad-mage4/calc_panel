@@ -84,7 +84,7 @@ if ($guest != 'yes' && !is_loggedin()) {
 
                         <div class="popup" id="sugar-historyPopup">
                             <div class="popup-content">
-                                <a href="login.php" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
+                                <a href="login.php" class="btn btn-md btn-primary guest-login-btn">Login to sync</a>
                                 <span class="popup-close" onclick="sugar_closePopup()">&#10006;</span>
                                 <h2>Sugar Calculation History</h2>
                                 <table class="popup-table">

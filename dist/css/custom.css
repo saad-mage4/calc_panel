@@ -44,15 +44,15 @@
     gap: 10px;
     font-size: 26px;
   }
+  .guest-login-btn {
+    position: absolute;
+    right: 55px;
+    top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
 }
-.guest-login-btn {
-  right: 55px;
-  top: 10px;
-  font-weight: bold;
-  font-size: 18px;
-  letter-spacing: 1px;
-}
-
 .container-calc {
   width: 100%;
   margin-block: 30px;
@@ -643,6 +643,9 @@
 @media (max-width: 768px) {
   .client-dropdown {
     font-size: 14px; /* Reduce font size for smaller screens */
+  }
+  .popup .popup-content {
+    padding: 10px;
   }
 }
 /* For mobile devices */

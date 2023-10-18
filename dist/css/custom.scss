@@ -53,16 +53,18 @@
       font-size: 26px;
     }
   }
-}
-
-// basic calc
+  // basic calc
 .guest-login-btn {
+  position: absolute;
   right: 55px;
   top: 10px;
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 1px;
 }
+}
+
+
 
 .container-calc {
   width: 100%;
@@ -688,6 +690,11 @@
 @media (max-width: 768px) {
   .client-dropdown {
     font-size: 14px; /* Reduce font size for smaller screens */
+  }
+  .popup {
+    .popup-content {
+      padding: 10px;
+    }
   }
 }
 
