@@ -30,6 +30,9 @@
   }
 }
 
+.sidebar-mini.sidebar-collapse-full-width .main-header {
+  position: static;
+}
 @media (min-width: 1200px) {
   .sidebar-mini.sidebar-collapse-full-width .main-header,
   .sidebar-mini.sidebar-collapse-full-width .content-wrapper,
