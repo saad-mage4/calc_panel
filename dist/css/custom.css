@@ -31,18 +31,18 @@
     margin-left: 0 !important;
   }
   .small-box {
-    height: 300px;
+    height: 150px;
   }
   .small-box > .inner {
-    height: calc(100% - 80px);
+    height: calc(100% - 40px);
   }
   .small-box > .small-box-footer {
-    height: 80px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    font-size: 30px;
+    font-size: 26px;
   }
 }
 .guest-login-btn {

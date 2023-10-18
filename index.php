@@ -40,7 +40,7 @@ require_once 'core/database.php';
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 col-12">
+                <div class="col-lg-3 col-12">
 
                     <div class="small-box bg-secondary">
                         <div class="inner">
@@ -52,7 +52,7 @@ require_once 'core/database.php';
                         <a href="basic_calculator.php?guest=yes" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12">
+                <div class="col-lg-3 col-12">
 
                     <div class="small-box bg-info">
                         <div class="inner">
@@ -65,7 +65,7 @@ require_once 'core/database.php';
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-12">
+                <div class="col-lg-3 col-12">
 
                     <div class="small-box bg-success">
                         <div class="inner">
@@ -78,7 +78,7 @@ require_once 'core/database.php';
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-12">
+                <div class="col-lg-3 col-12">
 
                     <div class="small-box bg-primary">
                         <div class="inner">
@@ -88,6 +88,18 @@ require_once 'core/database.php';
                             <i class="ion ion-bag"></i>
                         </div>
                         <a href="sugar_calculator.php?guest=yes" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12">
+                    <div class="small-box bg-secondary">
+                        <div class="inner">
+                            <h3>Pulley Calculator</h3>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="pulley.php" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 

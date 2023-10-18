@@ -23,7 +23,7 @@ require_once 'core/database.php';
             <div class="container">
                 <div class="row mt-3">
                     <!-- left column -->
-                    <div class="col-md-8 mx-auto">
+                    <div class="col-md-6 mx-auto">
                         <div class="pulley-calculator">
                             <h2 class="mt-2 mb-3 text-center">Pulley Calculator</h2>
                         <form id="calculatorForm">
@@ -44,12 +44,12 @@ require_once 'core/database.php';
                                     <label for="desiredRPM">Enter the desired driven pulley RPM:</label>
                                     <input class="form-control" type="number" id="desiredRPM" name="desiredRPM" placeholder="Desired Driven Pulley RPM">
                                 </div>
-                                <div class="col-12 col-lg-6 mb-3 result">
+                                <div class="col-12 col-lg-6 mb-3 mx-auto d-flex align-items-center">
+                                    <button type="button" class="btn btn-primary w-100" onclick="calculate()">Calculate</button>
+                                </div>
+                                <div class="col-12 col-lg-12 mb-3 text-center result">
                                     <h3 class="font-weight-bold">Result:</h3>
                                     <p class="font-weight-bold" id="resultValue">Enter 3 values to calculate the 4th.</p>
-                                </div>
-                                <div class="col-12 col-lg-6 mb-3 d-flex align-items-center">
-                                    <button type="button" class="btn btn-primary w-100" onclick="calculate()">Calculate</button>
                                 </div>
                             </div>
                         </form>
