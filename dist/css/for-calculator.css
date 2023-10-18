@@ -1,0 +1,6 @@
+.layout-navbar-fixed .wrapper .main-header {
+  position: static;
+}
+section.content {
+	height: 70vh;
+}

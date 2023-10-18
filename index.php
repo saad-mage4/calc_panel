@@ -8,15 +8,13 @@ if($guest == 'yes') {
     $role = '';
 }
 require_once 'core/database.php';
-if ($guest != 'yes' && !is_loggedin()) {
-?><script>
-        window.location.href = "login.php";
-    </script><?php
-            }
+// if ($guest != 'yes' && !is_loggedin()) {
+
+            // }
             include_once 'includes/header.php';
-            if ($guest != 'yes') {
+            // if ($guest != 'yes') {
                 include_once 'includes/aside.php';
-            }
+            // }
                 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -42,7 +40,7 @@ if ($guest != 'yes' && !is_loggedin()) {
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-6 col-12">
 
                     <div class="small-box bg-secondary">
                         <div class="inner">
@@ -51,10 +49,10 @@ if ($guest != 'yes' && !is_loggedin()) {
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer basic-calc">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="basic_calculator.php?guest=yes" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-6 col-12">
 
                     <div class="small-box bg-info">
                         <div class="inner">
@@ -63,11 +61,11 @@ if ($guest != 'yes' && !is_loggedin()) {
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer flour-cal">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="./flour_calculator.php?guest=yes" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-6 col-12">
 
                     <div class="small-box bg-success">
                         <div class="inner">
@@ -76,11 +74,11 @@ if ($guest != 'yes' && !is_loggedin()) {
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer rice-calc">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="./rice_calculator.php?guest=yes" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-6 col-12">
 
                     <div class="small-box bg-primary">
                         <div class="inner">
@@ -89,7 +87,7 @@ if ($guest != 'yes' && !is_loggedin()) {
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer sugar-calc">Calculate <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="sugar_calculator.php?guest=yes" class="small-box-footer">Calculate <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -187,294 +185,6 @@ if ($guest != 'yes' && !is_loggedin()) {
                 <div class="row">
                     <!-- left column -->
                     <div class="col-md-12">
-
-                        <!-- Basic Calculator -->
-                        <div class="container-calc" style="display: none;">
-                            <div class="calculator-basic">
-                                <form>
-                                    <div class="display">
-                                        <input type="text" name="display" id="display">
-                                    </div>
-                                    <div>
-                                        <input type="button" value="CE" onclick="clearDisplay()" style="background-color: #DF908A; border-bottom: 2px solid #C13A33; border-right: 2px solid #C13A33; border-left: 2px solid #C13A33;">
-
-                                        <input type="button" value="%" onclick="addPercentage()" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                        <input type="button" value="+/-" onclick="toggleSign()" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                        <input type="button" value="÷" onclick="addToDisplay('÷')" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                    </div>
-                                    <div>
-                                        <input type="button" value="7" onclick="addToDisplay('7')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="8" onclick="addToDisplay('8')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="9" onclick="addToDisplay('9')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="×" onclick="addToDisplay('×')" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                    </div>
-                                    <div>
-                                        <input type="button" value="4" onclick="addToDisplay('4')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="5" onclick="addToDisplay('5')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="6" onclick="addToDisplay('6')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="-" onclick="addToDisplay('-')" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-                                    </div>
-                                    <div>
-                                        <input type="button" value="1" onclick="addToDisplay('1')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="2" onclick="addToDisplay('2')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="3" onclick="addToDisplay('3')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="+" onclick="addToDisplay('+')" style="background-color: #ACB0B9; border-bottom: 2px solid #707787; border-right: 2px solid #707787; border-left: 2px solid #707787;">
-
-                                    </div>
-                                    <div>
-                                        <input type="button" value="0" onclick="addToDisplay('0')" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="." onclick="addToDisplay('.')" style="background-color: #B8B8AE;border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="⌫" onclick="backspace()" style="background-color: #B8B8AE; border-bottom: 2px solid #87877A; border-right: 2px solid #87877A; border-left: 2px solid #87877A;">
-
-                                        <input type="button" value="=" onclick="calculateResult()" style="background-color: #EFAA5F; color: black; border-bottom: 2px solid #E86D27; border-right: 2px solid #E86D27; border-left: 2px solid #E86D27;">
-
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Flour Calculator -->
-                        <div id="flour-calculator" style="display: none;">
-                            <div class="container" id="calculator-container">
-                                <h3 class="text-center">Flour Calculator</h3>
-                            <div class="formula-line" id="formula-line"></div>
-                            <div class="result-container" id="result-container">
-                                <div class="result-box">
-                                    <table>
-                                        <tr>
-                                            <th class="profit">Profit</th>
-                                            <th class="remaining">Remaining</th>
-                                        </tr>
-                                        <tr>
-                                            <td id="result1" class="profit">2.000 KG</td>
-                                            <td id="result2" class="remaining">38.000 KG</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <p class="kgs">Enter the amount (in KGs): </p>
-                                <input type="number" id="amountInput" step="0.01">
-                                <span class="clear-input" id="clearInput" onclick="clearInputField()">&#10006;</span>
-                                <span class="history-icon" id="historyIcon" onclick="showCalculationHistory()">&#x21BB;</span>
-                                </p>
-
-
-                                <div class="search-container">
-                                    <input type="text" id="clientSearch" placeholder="Clients..." onkeyup="filterClients()" oninput="filterClients()">
-                                    <i id="addClientButton" class="fas fa-plus-circle" onclick="addNewClientPopup()"></i>
-                                    <span class="clear-input2" onclick="clearClientInputField()">&#10006;</span>
-                                    <div id="clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
-                                </div>
-
-                                <div id="addClientModal" class="modal">
-                                    <div class="modal-content">
-                                        <span class="close-icon" onclick="closeAddClientModal()">&times;</span>
-                                        <h2>Add New Client</h2>
-                                        <input type="text" id="clientName" class="input-field" placeholder="Client Name">
-                                        <input type="text" id="clientArea" class="input-field" placeholder="Client Area">
-                                        <p> <button class="add-btn" onclick="addClient()">Add</button></p>
-                                    </div>
-                                </div>
-
-
-
-
-                                <button class="calculate-button" onclick="calculateFlour()">Calculate</button>
-                            </div>
-                            <div class="result-line" id="result-line"></div>
-
-                            </div>
-
-                            <div class="popup" id="historyPopup">
-                            <div class="popup-content">
-                                <a href="" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
-                                <span class="popup-close" onclick="closePopup()">&#10006;</span>
-                                <h2>Calculation History</h2>
-                                <table class="popup-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Time</th>
-                                            <th>Client</th> <!-- New Column -->
-                                            <th>Original</th>
-                                            <th>Profit</th>
-                                            <th>Rest</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="historyTable">
-                                        <!-- History table rows will be added here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                            </div>
-                        </div>
-
-                         <!-- Rice Calculator -->
-                    <div id="rice-calculator" style="display: none;">
-                        <div class="container" id="calculator-container">
-                            <h3 class="text-center">Rice Calculator</h3>
-                            <div class="formula-line" id="formula-line"></div>
-                            <div class="result-container" id="result-container">
-                                <div class="result-box">
-                                    <table>
-                                        <tr>
-                                            <th class="profit">Profit</th>
-                                            <th class="remaining">Remaining</th>
-                                        </tr>
-                                        <tr>
-                                            <td id="result1" class="profit">2.000 KG</td>
-                                            <td id="result2" class="remaining">38.000 KG</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <p class="kgs">Enter the amount (in KGs): </p>
-                                <input type="number" id="amountInput" step="0.01">
-                                <span class="clear-input" id="clearInput" onclick="clearInputField()">&#10006;</span>
-                                <span class="history-icon" id="historyIcon" onclick="showCalculationHistory()">&#x21BB;</span>
-                                </p>
-
-
-                                <div class="search-container">
-                                    <input type="text" id="clientSearch" placeholder="Clients..." onkeyup="filterClients()" oninput="filterClients()">
-                                    <i id="addClientButton" class="fas fa-plus-circle" onclick="addNewClientPopup()"></i>
-                                    <span class="clear-input2" onclick="clearClientInputField()">&#10006;</span>
-                                    <div id="clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
-                                </div>
-
-                                <div id="addClientModal" class="modal">
-                                    <div class="modal-content">
-                                        <span class="close-icon" onclick="closeAddClientModal()">&times;</span>
-                                        <h2>Add New Client</h2>
-                                        <input type="text" id="clientName" class="input-field" placeholder="Client Name">
-                                        <input type="text" id="clientArea" class="input-field" placeholder="Client Area">
-                                        <p> <button class="add-btn" onclick="addClient()">Add</button></p>
-                                    </div>
-                                </div>
-
-
-
-
-                                <button class="calculate-button" onclick="calculateFlour()">Calculate</button>
-                            </div>
-                            <div class="result-line" id="result-line"></div>
-
-                        </div>
-
-                        <div class="popup" id="historyPopup">
-                            <div class="popup-content">
-                                <a href="" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
-                                <span class="popup-close" onclick="closePopup()">&#10006;</span>
-                                <h2>Calculation History</h2>
-                                <table class="popup-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Time</th>
-                                            <th>Client</th> <!-- New Column -->
-                                            <th>Original</th>
-                                            <th>Profit</th>
-                                            <th>Rest</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="historyTable">
-                                        <!-- History table rows will be added here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sugar Calculator -->
-                    <div id="sugar-calculator" style="display: none;">
-                        <div class="container" id="calculator-container">
-                            <h3 class="text-center">Sugar Calculator</h3>
-                            <div class="formula-line" id="formula-line"></div>
-                            <div class="result-container" id="result-container">
-                                <div class="result-box">
-                                    <table>
-                                        <tr>
-                                            <th class="profit">Profit</th>
-                                            <th class="remaining">Remaining</th>
-                                        </tr>
-                                        <tr>
-                                            <td id="result1" class="profit">2.000 KG</td>
-                                            <td id="result2" class="remaining">38.000 KG</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <p class="kgs">Enter the amount (in KGs): </p>
-                                <input type="number" id="amountInput" step="0.01">
-                                <span class="clear-input" id="clearInput" onclick="clearInputField()">&#10006;</span>
-                                <span class="history-icon" id="historyIcon" onclick="showCalculationHistory()">&#x21BB;</span>
-                                </p>
-
-
-                                <div class="search-container">
-                                    <input type="text" id="clientSearch" placeholder="Clients..." onkeyup="filterClients()" oninput="filterClients()">
-                                    <i id="addClientButton" class="fas fa-plus-circle" onclick="addNewClientPopup()"></i>
-                                    <span class="clear-input2" onclick="clearClientInputField()">&#10006;</span>
-                                    <div id="clientDropdown" class="client-dropdown"></div> <!-- Add this line -->
-                                </div>
-
-                                <div id="addClientModal" class="modal">
-                                    <div class="modal-content">
-                                        <span class="close-icon" onclick="closeAddClientModal()">&times;</span>
-                                        <h2>Add New Client</h2>
-                                        <input type="text" id="clientName" class="input-field" placeholder="Client Name">
-                                        <input type="text" id="clientArea" class="input-field" placeholder="Client Area">
-                                        <p> <button class="add-btn" onclick="addClient()">Add</button></p>
-                                    </div>
-                                </div>
-
-
-
-
-                                <button class="calculate-button" onclick="calculateFlour()">Calculate</button>
-                            </div>
-                            <div class="result-line" id="result-line"></div>
-
-                        </div>
-
-                        <div class="popup" id="historyPopup">
-                            <div class="popup-content">
-                                <a href="" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
-                                <span class="popup-close" onclick="closePopup()">&#10006;</span>
-                                <h2>Calculation History</h2>
-                                <table class="popup-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Time</th>
-                                            <th>Client</th> <!-- New Column -->
-                                            <th>Original</th>
-                                            <th>Profit</th>
-                                            <th>Rest</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="historyTable">
-                                        <!-- History table rows will be added here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
 
 
                     </div>
@@ -657,11 +367,11 @@ if ($guest != 'yes' && !is_loggedin()) {
             });
         });
 
-        $('.basic-calc').on('click', function(e) {
-            e.preventDefault();
-            $('#flour-calculator, #rice-calculator, #sugar-calculator').hide();
-            $('.container-calc').show('slow');
-        });
+        // $('.basic-calc').on('click', function(e) {
+        //     e.preventDefault();
+        //     $('#flour-calculator, #rice-calculator, #sugar-calculator').hide();
+        //     $('.container-calc').show('slow');
+        // });
         $('.flour-cal').on('click', function(e) {
             e.preventDefault();
             $('.container-calc, #rice-calculator, #sugar-calculator').hide();
@@ -682,7 +392,3 @@ if ($guest != 'yes' && !is_loggedin()) {
 
     });
 </script>
-
-
-
-<script src="./dist/js/basic-calc.js"></script>
