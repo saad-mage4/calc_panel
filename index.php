@@ -8,6 +8,7 @@ if($guest == 'yes') {
     $data = '';
     $role = '';
 }
+
 require_once 'core/database.php';
 // if ($guest != 'yes' && !is_loggedin()) {
 

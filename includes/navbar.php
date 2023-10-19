@@ -3,10 +3,10 @@
     <!-- Left navbar links -->
     <ul class="mobile-navigation align-items-center justify-content-between w-100 navbar-nav d-flex d-lg-none">
       <?php if(isset($dashboard)===true):?>
-        <li class="align-self-center"><a href="#!">Dashboard</a></li>
+        <li class="mx-auto"><a href="#!">MPC</a></li>
       <?php else: ?>
         <li><a href="#!" onclick="javascript:history.go(-1)"><i class="fas fa-arrow-left"></i></a></li>
-        <li><a href="#!">Home</a></li>
+        <li><a href="#!">MPC</a></li>
       <?php endif; ?>
     </ul>
     <ul class="navbar-nav d-none d-lg-flex">

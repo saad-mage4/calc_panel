@@ -4,7 +4,7 @@
 </aside>
 <!-- /.control-sidebar -->
 
-<div class="footer-navigation">
+<div class="footer-navigation d-block d-lg-none">
   <ul class="list-unstyled d-flex align-items-center justify-content-between">
     <li><a href="#!"><i class="fas fa-search"></i></a></li>
     <li><a href="#!"><i class="fas fa-home"></i></a></li>
