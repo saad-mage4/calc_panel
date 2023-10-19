@@ -684,12 +684,34 @@
   .footer-navigation ul a {
     color: #fff;
     font-size: 22px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+  }
+  .footer-navigation ul a.active {
+    color: #0056b3;
+    background-color: #fff;
   }
   .client-dropdown {
     font-size: 14px; /* Reduce font size for smaller screens */
   }
   .popup .popup-content {
     padding: 10px;
+  }
+  #search-bar {
+    position: absolute;
+    top: -55px;
+    left: 0;
+  }
+  #search-bar input {
+    width: 100%;
+    font-size: 18px;
+    border: 2px solid #222;
+    min-width: calc(100vw - 40px);
   }
 }
 /* For mobile devices */

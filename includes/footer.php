@@ -6,10 +6,21 @@
 
 <div class="footer-navigation d-block d-lg-none">
   <ul class="list-unstyled d-flex align-items-center justify-content-between">
-    <li><a href="#!"><i class="fas fa-search"></i></a></li>
-    <li><a href="#!"><i class="fas fa-home"></i></a></li>
-    <li><a href="#!"><i class="fas fa-bars"></i></a></li>
-    <li><a href="#!"><i class="fas fa-user-alt"></i></a></li>
+    <li class="position-relative">
+      <a href="#!" class="search-btn"><i class="fas fa-search"></i></a>
+      <form id="search-bar" class="d-none">
+        <input type="text" name="search" id="search" class="form-control">
+      </form>
+    </li>
+    <li class="position-relative">
+      <a href="#!" class="home-btn"><i class="fas fa-home"></i></a>
+    </li>
+    <li class="position-relative">
+      <a href="#!" class="menu-btn"><i class="fas fa-bars"></i></a>
+    </li>
+    <li class="position-relative">
+      <a href="#!" class="profile-btn"><i class="fas fa-user-alt"></i></a>
+    </li>
   </ul>
 </div>
 
@@ -90,6 +101,42 @@
         "width": "25%",
         "targets": 2
       }]
+    });
+
+
+    $('.footer-navigation ul').on('click', 'li a', function(e) {
+      e.preventDefault();
+      // $(this).addClass('active').parent().siblings().find('a').removeClass('active');
+    });
+
+    $('.search-btn').on('click', function(e) {
+      e.preventDefault();
+      $(this).siblings().toggleClass('d-none');
+      $(this).parent().siblings().find('a').removeClass('active');
+      if(!$('#search-bar').hasClass('d-none')) {
+        $(this).addClass('active');
+      } else {
+        console.log('search has class');
+        $(this).removeClass('active');
+      }
+    });
+
+    $('.home-btn').on('click', function(e) {
+      e.preventDefault();
+      $('#search-bar').addClass('d-none');
+      $(this).addClass('active').parent().siblings().find('a').removeClass('active');
+    });
+
+    $('.menu-btn').on('click', function(e) {
+      e.preventDefault();
+      $('#search-bar').addClass('d-none');
+      $(this).addClass('active').parent().siblings().find('a').removeClass('active');
+    });
+
+    $('.profile-btn').on('click', function(e) {
+      e.preventDefault();
+      $('#search-bar').addClass('d-none');
+      $(this).addClass('active').parent().siblings().find('a').removeClass('active');
     });
 
   });
