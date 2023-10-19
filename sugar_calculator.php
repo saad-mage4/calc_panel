@@ -84,7 +84,11 @@ if ($guest != 'yes' && !is_loggedin()) {
 
                         <div class="popup" id="sugar-historyPopup">
                             <div class="popup-content">
-                                <a href="login.php" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
+                                <?php if (is_loggedin()){ ?>
+                                    <a href="#!" class="btn btn-md btn-primary position-absolute guest-login-btn" onclick="data_sync('sugar_calculationHistory')">sync</a>
+                                <?php } else { ?>
+                                    <a href="login.php" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
+                                <?php } ?>
                                 <span class="popup-close" onclick="sugar_closePopup()">&#10006;</span>
                                 <h2>Sugar Calculation History</h2>
                                 <table class="popup-table">

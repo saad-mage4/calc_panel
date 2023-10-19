@@ -38,6 +38,7 @@
                 document.getElementById("flour-result-container").classList.add("active");
             }, 100);
             flour_storeCalculationHistory(amount.toFixed(2), result.toFixed(3), secondAmount.toFixed(3));
+            flour_showCalculationHistory();
         }
     
         function flour_showCalculationHistory() {
@@ -171,31 +172,53 @@
                 clientSelect.appendChild(option);
             });
         });
+
+        function data_sync(type) {
+            console.log(type);
+            let calculationHistory = JSON.parse(localStorage.getItem(type)) || [];
+            calculationHistory = JSON.stringify(calculationHistory);
+            const ajax = new XMLHttpRequest();
+            ajax.open('POST', 'dataSync.php', true);
+            ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            ajax.onload = function () {
+                if (ajax.status >= 200 && ajax.status < 300) {
+                    console.log(ajax.response);
+                    localStorage.removeItem("flour_calculationHistory");
+                    flour_showCalculationHistory();
+                } else {
+                    ajax.status;
+                }
+            };
+            const data = new URLSearchParams();
+            data.append('calculator_type', type);
+            data.append('data', calculationHistory);
+            ajax.send(data);
+            }
     
     // FLOUR CALCULATOR END
 
 
             // RICE CALCULATOR START
 
-    
+
             function rice_closeClientDropdown() {
                 const clientDropdown = document.getElementById("rice-clientDropdown");
                 clientDropdown.style.display = 'none';
             }
-        
+
             function rice_clearClientInputField() {
                 const clientSearch = document.getElementById("rice-clientSearch");
                 clientSearch.value = "";
                 clientSearch.focus();
                 rice_filterClients();
             }
-        
+
             function rice_clearInputField() {
                 const amountInput = document.getElementById("rice-amountInput");
                 amountInput.value = "";
                 amountInput.focus();
             }
-        
+
             function rice_calculateFlour() {
                 const amount = parseFloat(document.getElementById("rice-amountInput").value);
                 const result = (amount * 50 / 1000);
@@ -211,7 +234,7 @@
                 }, 100);
                 rice_storeCalculationHistory(amount.toFixed(2), result.toFixed(3), secondAmount.toFixed(3));
             }
-        
+
             function rice_showCalculationHistory() {
                 const historyPopup = document.getElementById("rice-historyPopup");
                 const historyTable = document.getElementById("rice-historyTable");
@@ -231,17 +254,17 @@
                 historyPopup.style.display = "block";
                 // document.getElementById("rice-historyIcon").innerHTML = "&#x21BB;";
             }
-        
+
             function rice_closePopup() {
                 document.getElementById("rice-historyPopup").style.display = "none";
                 // document.getElementById("rice-historyIcon").innerHTML = "&#x21BB;";
             }
-        
+
             function rice_storeCalculationHistory(input, profit, remaining) {
                 const clientSearch = document.getElementById("rice-clientSearch");
                 console.log(clientSearch);
                 const clientValue = clientSearch.value;
-    
+
                 const now = new Date();
                 const day = now.toLocaleDateString('en-US', {
                     day: '2-digit'
@@ -268,7 +291,7 @@
                 }
                 localStorage.setItem("rice_calculationHistory", JSON.stringify(calculationHistory));
             }
-        
+
             function rice_filterClients() {
                 const input = document.getElementById("rice-clientSearch");
                 const filter = input.value.toLowerCase();
@@ -294,19 +317,19 @@
                 closeDiv.onclick = rice_closeClientDropdown;
                 clientDropdown.appendChild(closeDiv);
             }
-        
+
             function rice_addNewClientPopup() {
                 const modal = document.getElementById("rice-addClientModal");
                 modal.style.display = "block";
                 document.body.classList.add('no-scroll'); // Add the class to the body
             }
-        
+
             function rice_closeAddClientModal() {
                 const modal = document.getElementById("rice-addClientModal");
                 modal.style.display = "none";
                 document.body.classList.remove('no-scroll'); // Remove the class from the body
             }
-        
+
             function rice_addClient() {
                 const clientName = document.getElementById("rice-clientName").value;
                 const clientArea = document.getElementById("rice-clientArea").value;
@@ -321,7 +344,7 @@
                 document.getElementById("rice-clientSearch").value = clientName + " (" + clientArea + ")";
                 rice_closeAddClientModal();
             }
-        
+
             document.addEventListener('click', function(event) {
                 const input = document.getElementById("rice-clientSearch");
                 const dropdown = document.getElementById("rice-clientDropdown");
@@ -329,11 +352,11 @@
                     dropdown.style.display = 'none';
                 }
             });
-        
+
             document.getElementById("rice-clientSearch").addEventListener('focus', function() {
                 document.getElementById("rice-clientDropdown").style.display = 'block';
             });
-        
+
             document.addEventListener("DOMContentLoaded", function() {
                 const clientSelect = document.getElementById("rice-clientSelect");
                 rice_clients.forEach(client => {
@@ -343,31 +366,31 @@
                     clientSelect.appendChild(option);
                 });
             });
-        
+
         // RICE CALCULATOR END
 
 
      // SUGAR CALCULATOR START
 
-     
+
      function sugar_closeClientDropdown() {
          const clientDropdown = document.getElementById("sugar-clientDropdown");
          clientDropdown.style.display = 'none';
      }
- 
+
      function sugar_clearClientInputField() {
          const clientSearch = document.getElementById("sugar-clientSearch");
          clientSearch.value = "";
          clientSearch.focus();
          sugar_filterClients();
      }
- 
+
      function sugar_clearInputField() {
          const amountInput = document.getElementById("sugar-amountInput");
          amountInput.value = "";
          amountInput.focus();
      }
- 
+
      function sugar_calculateFlour() {
          const amount = parseFloat(document.getElementById("sugar-amountInput").value);
          const result = (amount * 50 / 1000);
@@ -383,7 +406,7 @@
          }, 100);
          sugar_storeCalculationHistory(amount.toFixed(2), result.toFixed(3), secondAmount.toFixed(3));
      }
- 
+
      function sugar_showCalculationHistory() {
          const historyPopup = document.getElementById("sugar-historyPopup");
          const historyTable = document.getElementById("sugar-historyTable");
@@ -403,12 +426,12 @@
          historyPopup.style.display = "block";
         //  document.getElementById("sugar-historyIcon").innerHTML = "&#x21BB;";
      }
- 
+
      function sugar_closePopup() {
          document.getElementById("sugar-historyPopup").style.display = "none";
         //  document.getElementById("sugar-historyIcon").innerHTML = "&#x21BB;";
      }
- 
+
      function sugar_storeCalculationHistory(input, profit, remaining) {
          const clientSearch = document.getElementById("sugar-clientSearch");
          console.log(clientSearch);
@@ -440,7 +463,7 @@
          }
          localStorage.setItem("sugar_calculationHistory", JSON.stringify(calculationHistory));
      }
- 
+
      function sugar_filterClients() {
          const input = document.getElementById("sugar-clientSearch");
          const filter = input.value.toLowerCase();
@@ -466,19 +489,19 @@
          closeDiv.onclick = sugar_closeClientDropdown;
          clientDropdown.appendChild(closeDiv);
      }
- 
+
      function sugar_addNewClientPopup() {
          const modal = document.getElementById("sugar-addClientModal");
          modal.style.display = "block";
          document.body.classList.add('no-scroll'); // Add the class to the body
      }
- 
+
      function sugar_closeAddClientModal() {
          const modal = document.getElementById("sugar-addClientModal");
          modal.style.display = "none";
          document.body.classList.remove('no-scroll'); // Remove the class from the body
      }
- 
+
      function sugar_addClient() {
          const clientName = document.getElementById("sugar-clientName").value;
          const clientArea = document.getElementById("sugar-clientArea").value;
@@ -493,7 +516,7 @@
          document.getElementById("sugar-clientSearch").value = clientName + " (" + clientArea + ")";
          sugar_closeAddClientModal();
      }
- 
+
      document.addEventListener('click', function(event) {
          const input = document.getElementById("sugar-clientSearch");
          const dropdown = document.getElementById("sugar-clientDropdown");
@@ -501,11 +524,11 @@
              dropdown.style.display = 'none';
          }
      });
- 
+
      document.getElementById("sugar-clientSearch").addEventListener('focus', function() {
          document.getElementById("sugar-clientDropdown").style.display = 'block';
      });
- 
+
      document.addEventListener("DOMContentLoaded", function() {
          const clientSelect = document.getElementById("sugar-clientSelect");
          sugar_clients.forEach(client => {
@@ -515,5 +538,5 @@
              clientSelect.appendChild(option);
          });
      });
- 
+
  // SUGAR CALCULATOR END
