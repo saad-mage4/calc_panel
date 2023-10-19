@@ -33,6 +33,13 @@
 .sidebar-mini.sidebar-collapse-full-width .main-header {
   position: static;
 }
+.layout-navbar-fixed {
+  .wrapper {
+    .content-wrapper {
+      margin-top: 0;
+    }
+  }
+}
 @media (min-width: 1200px) {
   .sidebar-mini.sidebar-collapse-full-width .main-header,
   .sidebar-mini.sidebar-collapse-full-width .content-wrapper,
@@ -688,6 +695,46 @@
 
 /* For tablets and smaller screens */
 @media (max-width: 768px) {
+
+  .main-header.navbar.navbar-expand.navbar-dark {
+    min-height: 60px;
+    .mobile-navigation {
+      padding-inline: 20px;
+      a {
+        color: #fff;
+        font-size: 22px;
+      }
+    }
+  }
+  #flour-calculator,
+  #rice-calculator,
+  #sugar-calculator {
+    margin-bottom: 100px;
+  }
+  .container-calc {
+    position: static;
+    transform: translate(0);
+  }
+
+  .footer-navigation {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    min-height: 60px;
+    background-color: #222;
+    width: 100%;
+    z-index: 10;
+    ul {
+      margin: 0;
+      padding-inline: 20px;
+      min-height: inherit;
+      a {
+        color: #fff;
+        font-size: 22px;
+      }
+    }
+  }
+
   .client-dropdown {
     font-size: 14px; /* Reduce font size for smaller screens */
   }
