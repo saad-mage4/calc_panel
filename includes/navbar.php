@@ -5,7 +5,7 @@
       <?php if(isset($dashboard)===true):?>
         <li class="mx-auto"><a href="#!">MPC</a></li>
       <?php else: ?>
-        <li><a href="#!" onclick="javascript:history.go(-1)"><i class="fas fa-arrow-left"></i></a></li>
+        <li><a href="#!" onclick="javascript:history.go(-1);return false"><i class="fas fa-arrow-left"></i></a></li>
         <li><a href="#!">MPC</a></li>
       <?php endif; ?>
     </ul>

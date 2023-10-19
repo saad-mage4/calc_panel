@@ -61,17 +61,15 @@
     }
   }
   // basic calc
-.guest-login-btn {
-  position: absolute;
-  right: 55px;
-  top: 10px;
-  font-weight: bold;
-  font-size: 18px;
-  letter-spacing: 1px;
+  .guest-login-btn {
+    position: absolute;
+    right: 55px;
+    top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
 }
-}
-
-
 
 .container-calc {
   width: 100%;
@@ -695,7 +693,6 @@
 
 /* For tablets and smaller screens */
 @media (max-width: 768px) {
-
   .main-header.navbar.navbar-expand.navbar-dark {
     min-height: 60px;
     .mobile-navigation {
@@ -753,6 +750,14 @@
   .client-dropdown {
     font-size: 12px; /* Further reduce font size for mobiles */
     padding: 8px 10px; /* Adjust padding */
+  }
+}
+
+@media (max-width: 360px) {
+  #flour-calculator-container::after,
+  #rice-calculator-container::after,
+  #sugar-calculator-container::after {
+    left: 50%;
   }
 }
 

@@ -699,6 +699,13 @@
     padding: 8px 10px; /* Adjust padding */
   }
 }
+@media (max-width: 360px) {
+  #flour-calculator-container::after,
+  #rice-calculator-container::after,
+  #sugar-calculator-container::after {
+    left: 50%;
+  }
+}
 #closeDropdown,
 #closeClientSearch {
   padding: 5px;
