@@ -5,7 +5,7 @@
       <?php if(isset($dashboard)===true):?>
         <li class="align-self-center"><a href="#!">Dashboard</a></li>
       <?php else: ?>
-        <li><a href="#!" onclick="history.back()"><i class="fas fa-arrow-left"></i></a></li>
+        <li><a href="#!" onclick="javascript:history.go(-1)"><i class="fas fa-arrow-left"></i></a></li>
         <li><a href="#!">Home</a></li>
       <?php endif; ?>
     </ul>
