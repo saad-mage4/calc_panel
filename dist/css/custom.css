@@ -20,6 +20,14 @@
   font-size: 18px;
 }
 
+.sidebar-mini.sidebar-collapse-full-width .main-header {
+  position: static;
+}
+
+.layout-navbar-fixed .wrapper .content-wrapper {
+  margin-top: 0;
+}
+
 @media (min-width: 1200px) {
   .sidebar-mini.sidebar-collapse-full-width .main-header,
   .sidebar-mini.sidebar-collapse-full-width .content-wrapper,
@@ -27,28 +35,28 @@
     margin-left: 0 !important;
   }
   .small-box {
-    height: 300px;
+    height: 150px;
   }
   .small-box > .inner {
-    height: calc(100% - 80px);
+    height: calc(100% - 40px);
   }
   .small-box > .small-box-footer {
-    height: 80px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    font-size: 30px;
+    font-size: 26px;
+  }
+  .guest-login-btn {
+    position: absolute;
+    right: 55px;
+    top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
   }
 }
-.guest-login-btn {
-  right: 55px;
-  top: 10px;
-  font-weight: bold;
-  font-size: 18px;
-  letter-spacing: 1px;
-}
-
 .container-calc {
   width: 100%;
   margin-block: 30px;
@@ -637,8 +645,48 @@
 
 /* For tablets and smaller screens */
 @media (max-width: 768px) {
+  .main-header.navbar.navbar-expand.navbar-dark {
+    min-height: 60px;
+  }
+  .main-header.navbar.navbar-expand.navbar-dark .mobile-navigation {
+    padding-inline: 20px;
+  }
+  .main-header.navbar.navbar-expand.navbar-dark .mobile-navigation a {
+    color: #fff;
+    font-size: 22px;
+  }
+  #flour-calculator,
+  #rice-calculator,
+  #sugar-calculator {
+    margin-bottom: 100px;
+  }
+  .container-calc {
+    position: static;
+    transform: translate(0);
+  }
+  .footer-navigation {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    min-height: 60px;
+    background-color: #222;
+    width: 100%;
+    z-index: 10;
+  }
+  .footer-navigation ul {
+    margin: 0;
+    padding-inline: 20px;
+    min-height: inherit;
+  }
+  .footer-navigation ul a {
+    color: #fff;
+    font-size: 22px;
+  }
   .client-dropdown {
     font-size: 14px; /* Reduce font size for smaller screens */
+  }
+  .popup .popup-content {
+    padding: 10px;
   }
 }
 /* For mobile devices */

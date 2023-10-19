@@ -4,6 +4,15 @@
 </aside>
 <!-- /.control-sidebar -->
 
+<div class="footer-navigation">
+  <ul class="list-unstyled d-flex align-items-center justify-content-between">
+    <li><a href="#!"><i class="fas fa-search"></i></a></li>
+    <li><a href="#!"><i class="fas fa-home"></i></a></li>
+    <li><a href="#!"><i class="fas fa-bars"></i></a></li>
+    <li><a href="#!"><i class="fas fa-user-alt"></i></a></li>
+  </ul>
+</div>
+
 <!-- Main Footer -->
 <footer class="main-footer">
   <strong>Copyright &copy; <?= date('Y') ?> <a href="#!">Multiple Calculator</a>.</strong>

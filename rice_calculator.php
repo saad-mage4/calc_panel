@@ -83,10 +83,11 @@ if ($guest != 'yes' && !is_loggedin()) {
 
                             <div class="popup" id="rice-historyPopup">
                             <div class="popup-content">
+
                                 <?php if (is_loggedin()){ ?>
-                                    <a href="#!" class="btn btn-md btn-primary position-absolute guest-login-btn" onclick="data_sync('rice_calculationHistory')">sync</a>
+                                    <a href="#!" class="btn btn-md btn-primary guest-login-btn" onclick="data_sync('rice_calculationHistory')">sync</a>
                                 <?php } else { ?>
-                                    <a href="login.php" class="btn btn-md btn-primary position-absolute guest-login-btn">Login to sync</a>
+                                    <a href="login.php" class="btn btn-md btn-primary guest-login-btn">Login to sync</a>
                                 <?php } ?>
                                 <span class="popup-close" onclick="rice_closePopup()">&#10006;</span>
                                 <h2>Rice Calculation History</h2>
