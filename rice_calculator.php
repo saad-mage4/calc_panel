@@ -8,11 +8,6 @@ if($guest == 'yes') {
     $role = '';
 }
 require_once 'core/database.php';
-if ($guest != 'yes' && !is_loggedin()) {
-?><script>
-        window.location.href = "login.php";
-    </script><?php
-            }
             include_once 'includes/header.php';
             // if ($guest != 'yes') {
                 include_once 'includes/aside.php';
